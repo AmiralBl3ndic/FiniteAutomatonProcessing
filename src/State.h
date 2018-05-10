@@ -6,7 +6,8 @@
 #include <cstdlib>
 #include "Transition.h"
 
-
+/** @description This class represents an Automaton's State, it contains a list of transitions (Transition)
+ */
 class State {
 private:
 	std::string _identifier;

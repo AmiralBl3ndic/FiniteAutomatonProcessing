@@ -5,7 +5,6 @@
 #include <iostream>
 
 /** @description This class is a composant of the State class, it represents a Transition from one State to another relying on their identifiers (std::string)
- *
  */
 class Transition {
 	
