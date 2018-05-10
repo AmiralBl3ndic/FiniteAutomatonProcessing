@@ -22,6 +22,8 @@ public:
 
 
 	/** @description Getter for the _symbol attribute
+	 *
+	 * @return {std::string} The _symbol attribute of the current instance of the class
 	 */
 	 std::string getSymbol() const;
 };

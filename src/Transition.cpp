@@ -15,7 +15,9 @@ Transition::Transition(const std::string &symbol, const std::string &endStateIde
 
 
 /** @description Getter for the _symbol attribute
-*/
+ *
+ * @return {std::string} The _symbol attribute of the current instance of the class
+ */
 std::string Transition::getSymbol() const {
     return _symbol;
 };
