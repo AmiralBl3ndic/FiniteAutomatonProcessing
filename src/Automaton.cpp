@@ -60,3 +60,35 @@ void Automaton::updateAlphabet(bool forceMatch) { // TODO: test this method
     }
 }
 
+
+/** @description Checks whether the instance is an asynchronous automaton or not
+ *
+ *  @return {bool} If the instance is asynchronous
+ */
+bool Automaton::isAsynchronous() const { // TODO: test this method
+    int i(0), j(0);
+    vector<string> stateSymbols;
+    bool asynchronous = false;
+
+    for (i = 0; i < _states.size(); i++) {
+        stateSymbols = _states[i].getSymbols();
+
+        // Checking if the state contains a transition labeled with the EMPTY_SYMBOL
+        if (find(stateSymbols.begin(), stateSymbols.end(), EMPTY_SYMBOL) != stateSymbols.end()) {
+            if (!asynchronous) {
+                cout << "This automaton is asynchronous... Looking for the transitions labeled with \"" << EMPTY_SYMBOL << "\"" << endl;
+                asynchronous = true;
+            }
+
+            cout << "The state #" << i << " of this automaton contains a transition labeled with \"" << EMPTY_SYMBOL << "\"" << endl;
+
+            for (j = 0; j < _states[i].getTransitions().size(); j++) {
+                if (_states[i].getTransitions()[j].getSymbol() == EMPTY_SYMBOL)
+                    cout << "    The transition #" << j << " is responsible for this automaton being asynchronous" << endl;
+            }
+        }
+    }
+
+    return asynchronous;
+}
+

@@ -37,6 +37,13 @@ public:
 	 *  @param forceMatch {bool} If the alphabet has to be cleared to match exactly all the symbols found, default is false
 	 */
     void updateAlphabet(bool forceMatch = false);
+
+
+    /** @description Checks whether the instance is an asynchronous automaton or not
+     *
+     *  @return {bool} If the instance is asynchronous
+     */
+     bool isAsynchronous() const;
 };
 
 
