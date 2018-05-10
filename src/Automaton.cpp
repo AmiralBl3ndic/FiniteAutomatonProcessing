@@ -18,7 +18,7 @@ Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> state
 
         // Displaying warnings only if verbose mode
         if (_verbose)
-            cerr << "Warning: initializing alphabet of Automaton with no values, adding empty symbol '*'" << endl;
+            cerr << "Warning: initializing alphabet of Automaton with no values, adding empty symbol \'" << EMPTY_SYMBOL << "\'" << endl;
 
         // Adding the empty symbol '*' to the alphabet so that it contains at least one symbol
         alphabet.push_back(EMPTY_SYMBOL);
