@@ -1,6 +1,7 @@
 #ifndef TAI_TRANSITION_H
 #define TAI_TRANSITION_H
 
+#include "constants.h"
 #include <string>
 #include <iostream>
 
@@ -18,7 +19,7 @@ public:
 	 *  @param symbol The symbol that labels the Transition. By default: "*" (empty word)
 	 *  @param endStateIdentifier The identifier of the State on which points the transition. By default: "trash" (trash state)
 	 */
-	explicit Transition (const std::string& symbol = "*", const std::string& endStateIdentifier = "trash");
+	explicit Transition (const std::string& symbol = EMPTY_SYMBOL, const std::string& endStateIdentifier = "trash");
 
 
 	/** @description Getter for the _symbol attribute

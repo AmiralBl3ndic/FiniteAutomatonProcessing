@@ -6,6 +6,7 @@
 #define TAI_AUTOMATON_H
 
 
+#include "constants.h"
 #include "State.h"
 #include <string>
 #include <vector>

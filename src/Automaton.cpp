@@ -21,7 +21,7 @@ Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> state
             cerr << "Warning: initializing alphabet of Automaton with no values, adding empty symbol '*'" << endl;
 
         // Adding the empty symbol '*' to the alphabet so that it contains at least one symbol
-        alphabet.push_back("*");
+        alphabet.push_back(EMPTY_SYMBOL);
         _alphabet = alphabet;
 
         // TODO: check for the alphabet in the passed states
