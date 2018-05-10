@@ -15,14 +15,15 @@ using namespace std;
  * @param isFinal
  */
 State::State(const std::string &identifier, const bool isInitial, const bool isFinal) : _identifier(identifier), _isInitial(isInitial), _isFinal(isFinal) {
-
+    // TODO: implement this method
 }
+
 
 /** @description Getter for _symbol attributes of the Transition instances composing the _transitions attribute
  *
  *  @return {std::vector<std::string>} The list of all the symbols of the transitions from this state
  */
-std::vector<std::string> State::getSymbols() const {
+std::vector<std::string> State::getSymbols() const { // TODO: test this method
     vector<string> ret;
     int i(0);
 
