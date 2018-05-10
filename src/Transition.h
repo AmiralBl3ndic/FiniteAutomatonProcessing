@@ -19,6 +19,11 @@ public:
 	 *  @param endStateIdentifier The identifier of the State on which points the transition. By default: "trash" (trash state)
 	 */
 	explicit Transition (const std::string& symbol = "*", const std::string& endStateIdentifier = "trash");
+
+
+	/** @description Getter for the _symbol attribute
+	 */
+	 std::string getSymbol() const;
 };
 
 
