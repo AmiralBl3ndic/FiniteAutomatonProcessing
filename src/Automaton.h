@@ -16,7 +16,8 @@ private:
 	std::vector<std::string> _alphabet;
 	std::vector<State> _states;
 	int _activeStateIndex;
-	
+
+
 public:
 };
 
