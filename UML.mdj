@@ -2451,14 +2451,14 @@
 								"$ref": "AAAAAAFjNajYESzA1QM="
 							},
 							"name": "isAsynchronous",
-							"documentation": "@description Is the automaton asynchronous\n\n@return {bool} If the vautomaton is asynchronous",
+							"documentation": "@description Is the automaton asynchronous\n\n@return {bool} If the automaton is asynchronous",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
 							"concurrency": "sequential",
 							"isQuery": false,
 							"isAbstract": false,
-							"specification": "- Displays the result of the test\n- Displays what makes the automaton asynchronou"
+							"specification": "- Displays the result of the test\n- Displays what makes the automaton asynchronous"
 						},
 						{
 							"_type": "UMLOperation",
