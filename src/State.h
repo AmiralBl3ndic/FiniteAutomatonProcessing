@@ -25,6 +25,13 @@ public:
 	 *  @return {std::vector<std::string>} The list of all the symbols of the transitions from this state
 	 */
 	std::vector<std::string> getSymbols() const;
+
+
+	/** @description Getter for the _transition attribute
+	 *
+	 *  @return {std::vector<Transition>} List (std::vector) of the transitions (Transition) of the instance
+	 */
+	 std::vector<Transition> getTransitions() const;
 };
 
 

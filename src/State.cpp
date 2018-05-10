@@ -34,3 +34,12 @@ std::vector<std::string> State::getSymbols() const { // TODO: test this method
 
     return ret;
 }
+
+
+/** @description Getter for the _transition attribute
+ *
+ *  @return {std::vector<Transition>} List (std::vector) of the transitions (Transition) of the instance
+ */
+std::vector<Transition> State::getTransitions() const {
+    return _transitions;
+}
