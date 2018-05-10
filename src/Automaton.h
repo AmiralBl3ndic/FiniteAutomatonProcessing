@@ -9,6 +9,8 @@
 #include "State.h"
 #include <string>
 #include <vector>
+#include <algorithm>
+
 
 /** @description This class is the representation of an Automaton : it contains a list of states (State) which all contain a list of transitions (Transition)
  */
@@ -27,6 +29,13 @@ public:
      * @param verbose {bool = false} Is an optional parameter (default is false) to give more information about the processing of the method when set to true
      */
     explicit Automaton(std::vector<std::string> alphabet = std::vector<std::string>(), std::vector<State> states = std::vector<State>(), bool verbose = false);
+
+
+	/** @description Updates the _alphabet property of an Automaton to match all the symbols of its transitions (from State class), by default this method will not remove the symbol in the alphabet that are not used by the instance
+	 *
+	 *  @param forceMatch {bool} If the alphabet has to be cleared to match exactly all the symbols found, default is false
+	 */
+    void updateAlphabet(bool forceMatch = false);
 };
 
 
