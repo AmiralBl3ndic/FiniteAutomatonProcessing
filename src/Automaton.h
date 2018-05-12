@@ -12,6 +12,8 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 
 /** @description This class is the representation of an Automaton : it contains a list of states (State) which all contain a list of transitions (Transition)
@@ -58,7 +60,7 @@ public:
 	 *  @param filePath The absolute (or relative) path to the file to read
 	 *  @param verbose (optional, default is false) Give more information about the processing of the method when set to true
 	 */
-    explicit Automaton (const std::string& filePath, bool verbose = false);
+    explicit Automaton(const std::string& filePath, bool verbose = false);
 
 
 	/** @description Updates the _alphabet property of an Automaton to match all the symbols of its transitions (from State class), by default this method will not remove the symbol in the alphabet that are not used by the instance

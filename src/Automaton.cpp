@@ -2,7 +2,6 @@
 // Created by camboy on 06/05/18.
 //
 
-#include <fstream>
 #include "Automaton.h"
 
 using namespace std;
@@ -38,6 +37,10 @@ Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> state
  *  @param verbose (optional, default is false) Give more information about the processing of the method when set to true
  */
 Automaton::Automaton(const std::string &filePath, bool verbose) : _activeStateIndex(0), _verbose(verbose) {
+    int i(0), toAdd(0);
+    string addStr;
+    stringstream stream;
+    int numberOfSymbols(0), numberOfStates(0), numberOfInitialStates(0), numberOfFinalStates(0), numberOfTransitions(0);
     ifstream file(filePath.c_str(), ifstream::in);
 
     if (!file) {
@@ -45,7 +48,17 @@ Automaton::Automaton(const std::string &filePath, bool verbose) : _activeStateIn
         return;
     }
 
-    // TODO: implement this method
+    file >> numberOfSymbols;
+    _alphabet.reserve(static_cast<unsigned long>(numberOfSymbols)); // Reserving enough space for all the symbols in the alphabet
+
+    file >> numberOfStates;
+    for (i = 0; i < numberOfStates; i++) {
+        stream.str(string());
+        stream << i;
+        _states.push_back(State(stream.str()));
+    }
+
+    file >> numberOfInitialStates;
 }
 
 
