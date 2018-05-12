@@ -104,6 +104,13 @@ bool Automaton::isAsynchronous() const { // TODO: test this method
 }
 
 
+/** @description Adds a transition to the instance by appending it to the right State (in the _states attribute), it does it only if the identifiers are recognized
+ *
+ *  @param from Identifier of the outgoing state
+ *  @param symbol Symbol that labels the transition
+ *  @param to Identifier of the target state
+ *  @return Whether the transition has been added to the Automaton or not
+ */
 bool Automaton::addTransition(const std::string &from, const std::string &symbol, const std::string &to) { // TODO: test this method
     bool checkFrom(false), checkTo(false);
     int i(0), fromID(-1);
