@@ -42,7 +42,7 @@ public:
       * @param symbol The symbol that labels the Transition instance
       * @param identifier The identifier of the arrival State instance
       */
-    bool addTransition(const std::string& symbol, const std::string& identifier);
+    void addTransition(const std::string& symbol, const std::string& identifier);
 };
 
 

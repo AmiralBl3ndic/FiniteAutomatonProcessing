@@ -53,8 +53,7 @@ std::vector<Transition> State::getTransitions() const {
   * @param symbol The symbol that labels the Transition instance
   * @param identifier The identifier of the arrival State instance
   */
-bool State::addTransition(const std::string &symbol, const std::string &identifier) {
+void State::addTransition(const std::string &symbol, const std::string &identifier) {
 
 
-    return false;
 }
