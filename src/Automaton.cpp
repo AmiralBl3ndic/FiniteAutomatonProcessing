@@ -103,3 +103,25 @@ bool Automaton::isAsynchronous() const { // TODO: test this method
     return asynchronous;
 }
 
+
+bool Automaton::addTransition(const std::string &from, const std::string &symbol, const std::string &to) { // TODO: test this method
+    bool checkFrom(false), checkTo(false);
+    int i(0), fromID(-1);
+
+    for (i = 0; i < _states.size(); i++) {
+        if (_states[i].getIdentifier() == from) {
+            checkFrom = true;
+            fromID = i;
+        }
+        if (_states[i].getIdentifier() == to)
+            checkTo = true;
+    }
+
+    if (checkFrom && checkTo)
+        _states[fromID].addTransition(symbol, to);
+    else
+        logBasicError("Cannot add transition, outgoing or target state (or both) are not recognized");
+
+    return checkFrom && checkTo;
+}
+
