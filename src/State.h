@@ -31,7 +31,17 @@ public:
 	 *
 	 *  @return {std::vector<Transition>} List (std::vector) of the transitions (Transition) of the instance
 	 */
-	 std::vector<Transition> getTransitions() const;
+	std::vector<Transition> getTransitions() const;
+
+
+    /** @description Part setter for the _transitions attribute: this method allows a `push_back()` to the _transitions attribute
+     *  @warning Do not use this method if you are not sure the passed symbol is included in the alphabet of the associated Automaton instance
+     *  @warning To allow a safer use of this method, use the `addTransition()` method of the Automaton class
+     *
+     *  @param symbol The symbol that labels the Transition instance
+     *  @param identifier The identifier of the arrival State instance
+     */
+    bool addTransition(const std::string& symbol, const std::string& identifier);
 };
 
 
