@@ -69,3 +69,13 @@ bool isDigits(const string& toCheck) {
 }
 
 
+/** @description Checks if a char is a digit
+ *
+ *  @param toCheck The char to check
+ *  @return Whether or not the given char is a digit
+ */
+bool isDigit(const char toCheck) {
+    vector<char> digits = digitsVector();
+
+    return find(digits.begin(), digits.end(), toCheck) != digits.end();
+}

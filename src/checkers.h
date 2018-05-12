@@ -39,7 +39,15 @@ std::vector<char> digitsVector();
  *
  *  @return Whether or not the given string is composed only of digits
  */
-bool isDigit(const std::string&);
+bool isDigits(const std::string&);
+
+
+/** @description Checks if a char is a digit
+ *
+ *  @param toCheck The char to check
+ *  @return Whether or not the given char is a digit
+ */
+bool isDigit(char toCheck);
 
 
 #endif //TAI_CHECKERS_H
