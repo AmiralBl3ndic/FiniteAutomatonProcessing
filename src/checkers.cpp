@@ -54,9 +54,10 @@ vector<char> digitsVector() {
 
 /** @description Checks if a string is composed only of digits (0 to 9)
  *
+ *  @param toCheck The string to check
  *  @return Whether or not the given string is composed only of digits
  */
-bool isDigit(const string& toCheck) {
+bool isDigits(const string& toCheck) {
     int i(0);
     vector<char> digits = digitsVector();
 
