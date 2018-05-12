@@ -54,8 +54,10 @@ std::vector<Transition> State::getTransitions() const {
   * @param identifier The identifier of the arrival State instance
   */
 void State::addTransition(const std::string &symbol, const std::string &identifier) {
+    Transition toAdd(symbol, identifier);
 
-
+    if (!transitionExists(toAdd))
+        _transitions.push_back(toAdd);
 }
 
 
