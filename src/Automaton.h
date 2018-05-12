@@ -22,6 +22,13 @@ private:
 	int _activeStateIndex;
 	bool _verbose;
 
+
+	void logBasicError(const std::string& error);
+
+	void logVerbose(const std::string& message);
+
+	bool addTransition(const std::string& from, const std::string& symbol, const std::string& to);
+
 public:
     /** @description Default constructor, requires an alphabet vector({std::string}) and a states vector ({State}), it has a verbose option (default set to false) for displaying warnings in case of use of default values
      *

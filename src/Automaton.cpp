@@ -15,10 +15,7 @@ using namespace std;
 */
 Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> states, bool verbose) : _alphabet(alphabet), _states(states), _verbose(verbose), _activeStateIndex(0) { //TODO: test this method
     if (alphabet.empty()) {
-
-        // Displaying warnings only if verbose mode
-        if (_verbose)
-            cerr << "Warning: initializing alphabet of Automaton with no values, adding empty symbol \'" << EMPTY_SYMBOL << "\'" << endl;
+        logBasicError(string("(Warning) Initializing alphabet of Automaton with no values, adding the empty symbol \"") + EMPTY_SYMBOL + "\"");
 
         // Adding the empty symbol '*' to the alphabet so that it contains at least one symbol
         alphabet.push_back(EMPTY_SYMBOL);
@@ -28,11 +25,21 @@ Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> state
     }
 
     if (states.empty()) {
-        if (_verbose)
-            cerr << "Warning: initializing Automaton with no states" << endl;
-
+        logBasicError("(Warning) Initializing Automaton with no states");
         _activeStateIndex = -1;
     }
+}
+
+
+void Automaton::logBasicError(const std::string &error) {
+    if (_verbose)
+        cerr << "ERROR: " << error << endl;
+}
+
+
+void Automaton::logVerbose(const std::string &message) {
+    if (_verbose)
+        cout << message << endl;
 }
 
 
@@ -45,8 +52,10 @@ void Automaton::updateAlphabet(bool forceMatch) { // TODO: test this method
     vector<string> stateSymbols;
 
     // If the alphabet has to be cleared before finding symbols
-    if (forceMatch)
+    if (forceMatch) {
         _alphabet.clear();
+        logVerbose("Alphabet cleared");
+    }
 
     // Exploring the states
     for (i = 0; i < _states.size(); i++) {
@@ -55,8 +64,10 @@ void Automaton::updateAlphabet(bool forceMatch) { // TODO: test this method
 
         // Adding the symbols that were found to the alphabet if they are not already in
         for (j = 0; j < stateSymbols.size(); j++)
-            if (find(_alphabet.begin(), _alphabet.end(), stateSymbols[i]) != _alphabet.end())
+            if (find(_alphabet.begin(), _alphabet.end(), stateSymbols[i]) != _alphabet.end()) {
                 _alphabet.push_back(stateSymbols[i]);
+                logVerbose("New symbol found and added to the alphabet");
+            }
     }
 }
 
