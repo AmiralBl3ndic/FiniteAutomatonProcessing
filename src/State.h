@@ -15,6 +15,10 @@ private:
 	bool _isInitial;
 	bool _isFinal;
 	std::vector<Transition> _transitions;
+
+
+	bool transitionExists(const Transition&);
+
 	
 public:
 	explicit State (const std::string& identifier, bool isInitial = false, bool isFinal = false);
