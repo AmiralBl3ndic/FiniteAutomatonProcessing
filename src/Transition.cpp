@@ -20,5 +20,9 @@ Transition::Transition(const std::string &symbol, const std::string &endStateIde
  */
 std::string Transition::getSymbol() const { // TODO: test this method
     return _symbol;
+}
+
+bool operator==(Transition const &tr1, Transition const &tr2) {
+    return (tr1._symbol == tr2._symbol && tr1._endStateIdentifier == tr2._endStateIdentifier);
 };
 

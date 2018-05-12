@@ -2,6 +2,7 @@
 // Created by camboy on 06/05/18.
 //
 
+#include <fstream>
 #include "Automaton.h"
 
 using namespace std;
@@ -31,13 +32,30 @@ Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> state
 }
 
 
-void Automaton::logBasicError(const std::string &error) {
+/** @description Constructor with  path
+ *
+ *  @param filePath The absolute (or relative) path to the file to read
+ *  @param verbose (optional, default is false) Give more information about the processing of the method when set to true
+ */
+Automaton::Automaton(const std::string &filePath, bool verbose) : _activeStateIndex(0), _verbose(verbose) {
+    ifstream file(filePath.c_str(), ifstream::in);
+
+    if (!file) {
+        logBasicError(string("Cannot open file ") + filePath);
+        return;
+    }
+
+    // TODO: implement this method
+}
+
+
+void Automaton::logBasicError(const std::string &error) const {
     if (_verbose)
         cerr << "ERROR: " << error << endl;
 }
 
 
-void Automaton::logVerbose(const std::string &message) {
+void Automaton::logVerbose(const std::string &message) const {
     if (_verbose)
         cout << message << endl;
 }

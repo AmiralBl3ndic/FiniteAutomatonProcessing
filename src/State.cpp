@@ -62,7 +62,7 @@ void State::addTransition(const std::string &symbol, const std::string &identifi
 
 
 
-bool State::transitionExists(const Transition &ref) {
+bool State::transitionExists(Transition ref) const {
     return find(_transitions.begin(), _transitions.end(), ref) != _transitions.end();
 }
 

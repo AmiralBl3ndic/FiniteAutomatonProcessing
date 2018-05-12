@@ -11,16 +11,19 @@
  */
 class State {
 private:
+
 	std::string _identifier;
 	bool _isInitial;
 	bool _isFinal;
 	std::vector<Transition> _transitions;
 
 
-	bool transitionExists(const Transition&);
+	bool transitionExists(Transition) const;
 
-	
+
+
 public:
+
 	explicit State (const std::string& identifier, bool isInitial = false, bool isFinal = false);
 
 
@@ -43,7 +46,6 @@ public:
 	 * 	@return The value of the _identifier attribute of the instance
 	 */
 	std::string getIdentifier();
-
 
 
     /** @description Part setter for the _transitions attribute: this method allows a `push_back()` to the _transitions attribute

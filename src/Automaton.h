@@ -11,21 +11,25 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 
 /** @description This class is the representation of an Automaton : it contains a list of states (State) which all contain a list of transitions (Transition)
  */
 class Automaton {
 private:
+
 	std::vector<std::string> _alphabet;
 	std::vector<State> _states;
 	int _activeStateIndex;
 	bool _verbose;
 
 
-	void logBasicError(const std::string& error);
+	void logBasicError(const std::string& error) const;
 
-	void logVerbose(const std::string& message);
+
+	void logVerbose(const std::string& message) const;
+
 
 	/** @description Adds a transition to the instance by appending it to the right State (in the _states attribute), it does it only if the identifiers are recognized
 	 *
@@ -36,7 +40,10 @@ private:
 	 */
 	bool addTransition(const std::string& from, const std::string& symbol, const std::string& to);
 
+
+
 public:
+
     /** @description Default constructor, requires an alphabet vector({std::string}) and a states vector ({State}), it has a verbose option (default set to false) for displaying warnings in case of use of default values
      *
      * @param alphabet {std::vector<std::string> = empty symbol} Is the alphabet of the Automaton represented under a list ({std::vector}) of strings ({std::string}), default set to only empty symbol "*"
@@ -44,6 +51,14 @@ public:
      * @param verbose {bool = false} Is an optional parameter (default is false) to give more information about the processing of the method when set to true
      */
     explicit Automaton(std::vector<std::string> alphabet = std::vector<std::string>(), std::vector<State> states = std::vector<State>(), bool verbose = false);
+
+
+	/** @description Constructor with  path
+	 *
+	 *  @param filePath The absolute (or relative) path to the file to read
+	 *  @param verbose (optional, default is false) Give more information about the processing of the method when set to true
+	 */
+    explicit Automaton (const std::string& filePath, bool verbose = false);
 
 
 	/** @description Updates the _alphabet property of an Automaton to match all the symbols of its transitions (from State class), by default this method will not remove the symbol in the alphabet that are not used by the instance
@@ -57,7 +72,14 @@ public:
      *
      *  @return {bool} If the instance is asynchronous
      */
-     bool isAsynchronous() const;
+    bool isAsynchronous() const;
+
+
+     /** @description Alternative to the contructor that takes a file path as parameter
+      *  @warning This is a static method, avoid its use by all means
+      *
+      */
+     //static Automaton createFromFile();
 };
 
 
