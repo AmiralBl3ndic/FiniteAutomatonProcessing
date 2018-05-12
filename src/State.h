@@ -57,6 +57,20 @@ public:
       * @param identifier The identifier of the arrival State instance
       */
     void addTransition(const std::string& symbol, const std::string& identifier);
+
+
+    /** @description Setter for _isInitial attribute
+     *
+     *  @param setter The value to set the attribute to
+     */
+    void setInitial(bool setter = true);
+
+
+    /** @description Setter for _isFinal attribute
+     *
+     *  @param setter The value to set the attribute to
+     */
+     void setFinal (bool setter = true);
 };
 
 

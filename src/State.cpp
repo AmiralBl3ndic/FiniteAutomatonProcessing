@@ -70,3 +70,22 @@ bool State::transitionExists(Transition ref) const {
 std::string State::getIdentifier() {
     return _identifier;
 }
+
+
+/** @description Setter for _isInitial attribute
+ *
+ *  @param setter The value to set the attribute to
+ */
+void State::setInitial(bool setter) {
+    _isInitial = setter;
+}
+
+
+/** @description Setter for _isFinal attribute
+ *
+ *  @param setter The value to set the attribute to
+ */
+void State::setFinal(bool setter) {
+    _isFinal = setter;
+}
+
