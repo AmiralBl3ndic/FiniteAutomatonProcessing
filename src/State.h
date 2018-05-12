@@ -38,6 +38,14 @@ public:
 	std::vector<Transition> getTransitions() const;
 
 
+	/** @description Getter for the _identifier attribute
+	 *
+	 * 	@return The value of the _identifier attribute of the instance
+	 */
+	std::string getIdentifier();
+
+
+
     /** @description Part setter for the _transitions attribute: this method allows a `push_back()` to the _transitions attribute
       * @warning Do not use this method if you are not sure the passed symbol is included in the alphabet of the associated Automaton instance
       * @warning Do not use this method if you are not sure the passed identifier is attributed for the associated Automaton instance
