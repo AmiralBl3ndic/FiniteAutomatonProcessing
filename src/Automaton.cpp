@@ -121,6 +121,8 @@ Automaton::Automaton(const std::string &filePath, bool verbose) : _activeStateIn
         logVerbose("  Done");
     }
     logVerbose("Done");
+
+    updateAlphabet(true);
 }
 
 
