@@ -41,15 +41,23 @@ Automaton::Automaton(const std::string &filePath, bool verbose) : _activeStateIn
     string addStr, subAdd, outState, trSymbol, targetState;
     stringstream stream;
     int numberOfSymbols(0), numberOfStates(0), numberOfInitialStates(0), numberOfFinalStates(0), numberOfTransitions(0);
-    ifstream file(filePath.c_str());
+    ifstream file;
+
+    logVerbose("Checking if file can be read...");
+    if (!checkFileIntegrity(filePath)) {
+        logBasicError("Cannot read the passed file\nAborting");
+        return;
+    }
+    logVerbose("Done");
+
+
+    file.open(filePath.c_str());
 
     // Checking if the file has been correctly opened
-    logVerbose("Checking if the file can be opened...");
     if (!file) {
         logBasicError(string("Cannot open file ") + filePath);
         return;
     }
-    logVerbose("Done");
 
 
     // Reading the size of the alphabet
