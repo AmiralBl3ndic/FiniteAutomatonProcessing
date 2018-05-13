@@ -41,7 +41,7 @@ Automaton::Automaton(const std::string &filePath, bool verbose) : _activeStateIn
     string addStr, subAdd, outState, trSymbol, targetState;
     stringstream stream;
     int numberOfSymbols(0), numberOfStates(0), numberOfInitialStates(0), numberOfFinalStates(0), numberOfTransitions(0);
-    ifstream file(filePath.c_str(), ifstream::in);
+    ifstream file(filePath.c_str());
 
     // Checking if the file has been correctly opened
     logVerbose("Checking if the file can be opened...");
@@ -215,5 +215,31 @@ bool Automaton::addTransition(const std::string &from, const std::string &symbol
         logBasicError("Cannot add transition, outgoing or target state (or both) are not recognized");
 
     return checkFrom && checkTo;
+}
+
+
+
+/** @description Checks the integrity of a file (if it contains all the needed information) based on its number of lines
+ *
+ *  @param filePath The path to the file
+ *  @return Whether the file can be read to create an automaton or not (based on the number of lines)
+ */
+bool Automaton::checkFileIntegrity(const std::string &filePath) {
+    ifstream file(filePath.c_str());
+    string line;
+    int neededLines(5), currentLine(0);
+
+    if (!file)
+        return false;
+
+    while (getline(file, line) && currentLine < neededLines) {
+        ++currentLine;
+
+        if (currentLine == 5) {
+            neededLines += static_cast<int>(strtol(line.c_str(), NULL, 10));
+        }
+    }
+
+    return currentLine == neededLines;
 }
 

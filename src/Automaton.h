@@ -9,12 +9,14 @@
 #include "constants.h"
 #include "State.h"
 #include "checkers.h"
+#include <cstdio>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <cstddef>
 
 
 /** @description This class is the representation of an Automaton : it contains a list of states (State) which all contain a list of transitions (Transition)
@@ -44,6 +46,12 @@ private:
 	bool addTransition(const std::string& from, const std::string& symbol, const std::string& to);
 
 
+    /** @description Checks the integrity of a file (if it contains all the needed information) based on its number of lines
+     *
+     *  @param filePath The path to the file
+     *  @return Whether the file can be read to create an automaton or not (based on the number of lines)
+     */
+	bool checkFileIntegrity(const std::string& filePath);
 
 public:
 
