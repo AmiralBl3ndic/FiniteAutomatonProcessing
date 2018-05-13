@@ -31,34 +31,88 @@ Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> state
 }
 
 
-/** @description Constructor with  path
+/** @description Constructor with file path
  *
  *  @param filePath The absolute (or relative) path to the file to read
  *  @param verbose (optional, default is false) Give more information about the processing of the method when set to true
  */
 Automaton::Automaton(const std::string &filePath, bool verbose) : _activeStateIndex(0), _verbose(verbose) {
     int i(0), toAdd(0);
-    string addStr;
+    string addStr, subAdd, outState, trSymbol, targetState;
     stringstream stream;
     int numberOfSymbols(0), numberOfStates(0), numberOfInitialStates(0), numberOfFinalStates(0), numberOfTransitions(0);
     ifstream file(filePath.c_str(), ifstream::in);
 
+    // Checking if the file has been correctly opened
+    logVerbose("Checking if the file can be opened...");
     if (!file) {
         logBasicError(string("Cannot open file ") + filePath);
         return;
     }
+    logVerbose("Done");
 
+
+    // Reading the size of the alphabet
+    logVerbose("Reading the size of the alphabet...");
     file >> numberOfSymbols;
     _alphabet.reserve(static_cast<unsigned long>(numberOfSymbols)); // Reserving enough space for all the symbols in the alphabet
+    logVerbose("Done");
 
+    // Reading the number of states
+    logVerbose("Reading the number of states...");
     file >> numberOfStates;
     for (i = 0; i < numberOfStates; i++) {
         stream.str(string());
         stream << i;
         _states.push_back(State(stream.str()));
     }
+    logVerbose("Done");
 
+    // Reading the number of initial states
+    logVerbose("Reading the number of initial states...");
     file >> numberOfInitialStates;
+    // Setting the right states to initial states
+    for (i = 0; i < numberOfInitialStates; i++) {
+        file >> toAdd;
+        _states[toAdd].setInitial();
+    }
+    logVerbose("Done");
+
+    // Reading the number of final states
+    logVerbose("Reading the number of final states...");
+    file >> numberOfFinalStates;
+    // Setting the right states to final states
+    for (i = 0; i < numberOfFinalStates; i++) {
+        file >> toAdd;
+        _states[toAdd].setFinal();
+    }
+    logVerbose("Done");
+
+    // Reading the number of transitions
+    logVerbose("Reading the number of transitions...");
+    file >> numberOfTransitions;
+    logVerbose("Done");
+
+    // Reading the transitions
+    logVerbose("Reading the transitions...");
+    for (i = 0; i < numberOfTransitions; i++) {
+        logVerbose("  Reading new transition...");
+        file >> addStr;
+
+        // Parsing the line
+        Transition::parseFromLine(addStr, outState, trSymbol, targetState);
+
+        // Adding the transition
+        cerr << "  "; // For readability in case of error
+        if (!addTransition(outState, trSymbol, targetState)) {
+            logVerbose("Aborting process, please check your file...");
+            return;
+        }
+        cerr << endl; // To avoid polluting the error flux
+
+        logVerbose("  Done");
+    }
+    logVerbose("Done");
 }
 
 
