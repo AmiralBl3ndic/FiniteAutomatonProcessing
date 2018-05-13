@@ -34,6 +34,18 @@ public:
 
 
 	 friend bool operator==(Transition const&, Transition const&);
+
+
+    /** @description Parses a line that represents a Transition
+     *  @warning This method does not check if the states identifiers are attributed
+     *
+     *  @param line The line to parse
+     *  @param outgoing (Modified parameter) The original state
+     *  @param symbol (Modified parameter) The symbol that labels the Transition
+     *  @param target (Modified parameter) The target state
+     *  @return If the line has been correctly parsed
+     */
+    static bool parseFromLine(const std::string& line, std::string& outgoing, std::string& symbol, std::string target);
 };
 
 
