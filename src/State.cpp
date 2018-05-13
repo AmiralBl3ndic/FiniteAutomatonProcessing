@@ -25,7 +25,7 @@ State::State(const std::string &identifier, const bool isInitial, const bool isF
  */
 std::vector<std::string> State::getSymbols() const { // TODO: test this method
     vector<string> ret;
-    int i(0);
+    unsigned int i(0);
 
     for (i = 0; i < _transitions.size(); i++) {
         if (find(ret.begin(), ret.end(), _transitions[i].getSymbol()) != ret.end())

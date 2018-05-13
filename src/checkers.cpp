@@ -26,7 +26,7 @@ std::string int_to_string(int toConvert) {
  *  @return A vector containing digits from 0 to size (excluded) in increasing order formatted as strings
  */
 vector<string> intStringVector(unsigned int size) {
-    int i(0);
+    unsigned int i(0);
     vector<string> ret;
 
     for (i = 0; i < size; i++)
@@ -58,7 +58,7 @@ vector<char> digitsVector() {
  *  @return Whether or not the given string is composed only of digits
  */
 bool isDigits(const string& toCheck) {
-    int i(0);
+    unsigned int i(0);
     vector<char> digits = digitsVector();
 
     for (i = 0; i < toCheck.size(); i++)
