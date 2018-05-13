@@ -39,7 +39,7 @@ bool operator==(Transition const &tr1, Transition const &tr2) {
  *  @param target (Modified parameter) The target state
  *  @return If the line has been correctly parsed
  */
-bool Transition::parseFromLine(const std::string &line, std::string &outgoing, std::string &symbol, std::string target) {
+bool Transition::parseFromLine(const std::string &line, std::string &outgoing, std::string &symbol, std::string target) { // TODO: test this method
     int i(0);
 
     // Emptying the strings
