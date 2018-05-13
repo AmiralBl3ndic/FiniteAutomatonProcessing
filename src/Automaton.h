@@ -76,13 +76,6 @@ public:
      *  @return {bool} If the instance is asynchronous
      */
     bool isAsynchronous() const;
-
-
-     /** @description Alternative to the contructor that takes a file path as parameter
-      *  @warning This is a static method, avoid its use by all means
-      *
-      */
-     //static Automaton createFromFile();
 };
 
 
