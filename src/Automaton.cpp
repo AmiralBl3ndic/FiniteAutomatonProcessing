@@ -13,7 +13,7 @@ using namespace std;
 *   @param states {std::vector<State> = empty} Is the list of the Automaton's states ({State}), default set to 0 state
 *   @param verbose {bool = false} Is an optional parameter (default is false) to give more information about the processing of the method when set to true
 */
-Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> states, bool verbose) : _alphabet(alphabet), _states(states), _verbose(verbose), _activeStateIndex(0) { //TODO: test this method
+Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> states, bool verbose) : _alphabet(alphabet), _states(states), _activeStateIndex(0), _verbose(verbose) { //TODO: test this method
     if (alphabet.empty()) {
         logBasicError(string("(Warning) Initializing alphabet of Automaton with no values, adding the empty symbol \"") + EMPTY_SYMBOL + "\"");
 
@@ -36,12 +36,15 @@ Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> state
  *  @param filePath The absolute (or relative) path to the file to read
  *  @param verbose (optional, default is false) Give more information about the processing of the method when set to true
  */
-Automaton::Automaton(const std::string &filePath, bool verbose) : _activeStateIndex(0), _verbose(verbose) {
+Automaton::Automaton(const std::string &filePath, bool verbose) {
     int i(0), toAdd(0);
     string addStr, subAdd, outState, trSymbol, targetState;
     stringstream stream;
     int numberOfSymbols(0), numberOfStates(0), numberOfInitialStates(0), numberOfFinalStates(0), numberOfTransitions(0);
     ifstream file;
+
+    _activeStateIndex = 0;
+    _verbose = verbose;
 
     logVerbose("Checking if file can be read...");
     if (!checkFileIntegrity(filePath)) {
@@ -121,6 +124,8 @@ Automaton::Automaton(const std::string &filePath, bool verbose) : _activeStateIn
         logVerbose("  Done");
     }
     logVerbose("Done");
+
+    updateAlphabet(true);
 }
 
 
@@ -141,7 +146,7 @@ void Automaton::logVerbose(const std::string &message) const {
  *  @param forceMatch {bool} If the alphabet has to be cleared to match exactly all the symbols found, default is false
  */
 void Automaton::updateAlphabet(bool forceMatch) { // TODO: test this method
-    int i(0), j(0);
+    unsigned int i(0), j(0);
     vector<string> stateSymbols;
 
     // If the alphabet has to be cleared before finding symbols
@@ -170,7 +175,7 @@ void Automaton::updateAlphabet(bool forceMatch) { // TODO: test this method
  *  @return {bool} If the instance is asynchronous
  */
 bool Automaton::isAsynchronous() const { // TODO: test this method
-    int i(0), j(0);
+    unsigned int i(0), j(0);
     vector<string> stateSymbols;
     bool asynchronous = false;
 
@@ -206,7 +211,8 @@ bool Automaton::isAsynchronous() const { // TODO: test this method
  */
 bool Automaton::addTransition(const std::string &from, const std::string &symbol, const std::string &to) { // TODO: test this method
     bool checkFrom(false), checkTo(false);
-    int i(0), fromID(-1);
+    unsigned int i(0);
+    int fromID(-1);
 
     for (i = 0; i < _states.size(); i++) {
         if (_states[i].getIdentifier() == from) {
