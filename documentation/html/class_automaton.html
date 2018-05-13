@@ -94,6 +94,8 @@ $(document).ready(function(){initNavTree('class_automaton.html','');});
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab8d51c2d25cf4dbb440eef63ead2a129"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#ab8d51c2d25cf4dbb440eef63ead2a129">Automaton</a> (std::vector&lt; std::string &gt; alphabet=std::vector&lt; std::string &gt;(), std::vector&lt; <a class="el" href="class_state.html">State</a> &gt; states=std::vector&lt; <a class="el" href="class_state.html">State</a> &gt;(), bool verbose=false)</td></tr>
 <tr class="separator:ab8d51c2d25cf4dbb440eef63ead2a129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e6749959a9287a0cff94a8e2e40ddc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#a01e6749959a9287a0cff94a8e2e40ddc">Automaton</a> (const std::string &amp;filePath, bool verbose=false)</td></tr>
+<tr class="separator:a01e6749959a9287a0cff94a8e2e40ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eb729cd5854647fc8b9b0bb07984f68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#a5eb729cd5854647fc8b9b0bb07984f68">updateAlphabet</a> (bool forceMatch=false)</td></tr>
 <tr class="separator:a5eb729cd5854647fc8b9b0bb07984f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5661d627898a3a668b15a5d3507aefe8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#a5661d627898a3a668b15a5d3507aefe8">isAsynchronous</a> () const</td></tr>
@@ -103,7 +105,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>This class is the representation of an <a class="el" href="class_automaton.html">Automaton</a> : it contains a list of states (<a class="el" href="class_state.html">State</a>) which all contain a list of transitions (<a class="el" href="class_transition.html">Transition</a>) </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab8d51c2d25cf4dbb440eef63ead2a129"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8d51c2d25cf4dbb440eef63ead2a129">&#9670;&nbsp;</a></span>Automaton()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d51c2d25cf4dbb440eef63ead2a129">&#9670;&nbsp;</a></span>Automaton() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,6 +149,50 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">alphabet</td><td>{std::vector&lt;std::string&gt; = empty symbol} Is the alphabet of the <a class="el" href="class_automaton.html">Automaton</a> represented under a list ({std::vector}) of strings ({std::string}), default set to only empty symbol "*" </td></tr>
     <tr><td class="paramname">states</td><td>{std::vector&lt;State&gt; = empty} Is the list of the <a class="el" href="class_automaton.html">Automaton</a>'s states ({<a class="el" href="class_state.html">State</a>}), default set to 0 state </td></tr>
     <tr><td class="paramname">verbose</td><td>{bool = false} Is an optional parameter (default is false) to give more information about the processing of the method when set to true </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a01e6749959a9287a0cff94a8e2e40ddc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01e6749959a9287a0cff94a8e2e40ddc">&#9670;&nbsp;</a></span>Automaton() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Automaton::Automaton </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>verbose</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructor with path</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filePath</td><td>The absolute (or relative) path to the file to read </td></tr>
+    <tr><td class="paramname">verbose</td><td>(optional, default is false) Give more information about the processing of the method when set to true </td></tr>
   </table>
   </dd>
 </dl>

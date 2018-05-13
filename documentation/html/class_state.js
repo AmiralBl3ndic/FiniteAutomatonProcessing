@@ -4,5 +4,7 @@ var class_state =
     [ "addTransition", "class_state.html#a61b58eebbb840c2428c98edb2a9249d9", null ],
     [ "getIdentifier", "class_state.html#af495568db8f81ebc64c49967c5e0de70", null ],
     [ "getSymbols", "class_state.html#a64f3f5595b34e97b35597d3844648d5e", null ],
-    [ "getTransitions", "class_state.html#a0eef598b3f643ee9004c1c56d045bb0f", null ]
+    [ "getTransitions", "class_state.html#a0eef598b3f643ee9004c1c56d045bb0f", null ],
+    [ "setFinal", "class_state.html#a72dbda671cb252079f20c6164fbd790b", null ],
+    [ "setInitial", "class_state.html#a1bc6b3d895c30448535ebaafe5f015a9", null ]
 ];

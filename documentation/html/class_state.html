@@ -102,6 +102,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af495568db8f81ebc64c49967c5e0de70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61b58eebbb840c2428c98edb2a9249d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a61b58eebbb840c2428c98edb2a9249d9">addTransition</a> (const std::string &amp;symbol, const std::string &amp;identifier)</td></tr>
 <tr class="separator:a61b58eebbb840c2428c98edb2a9249d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bc6b3d895c30448535ebaafe5f015a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a1bc6b3d895c30448535ebaafe5f015a9">setInitial</a> (bool setter=true)</td></tr>
+<tr class="separator:a1bc6b3d895c30448535ebaafe5f015a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72dbda671cb252079f20c6164fbd790b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a72dbda671cb252079f20c6164fbd790b">setFinal</a> (bool setter=true)</td></tr>
+<tr class="separator:a72dbda671cb252079f20c6164fbd790b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents an <a class="el" href="class_automaton.html">Automaton</a>'s <a class="el" href="class_state.html">State</a>, it contains a list of transitions (<a class="el" href="class_transition.html">Transition</a>) </p>
@@ -252,6 +256,56 @@ To allow a safer use of this method, use the <code><a class="el" href="class_sta
 </div><div class="memdoc">
 <p>Getter for the _transition attribute</p>
 <dl class="section return"><dt>Returns</dt><dd>{std::vector&lt;Transition&gt;} List (std::vector) of the transitions (<a class="el" href="class_transition.html">Transition</a>) of the instance </dd></dl>
+
+</div>
+</div>
+<a id="a72dbda671cb252079f20c6164fbd790b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72dbda671cb252079f20c6164fbd790b">&#9670;&nbsp;</a></span>setFinal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void State::setFinal </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>setter</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setter for _isFinal attribute</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">setter</td><td>The value to set the attribute to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1bc6b3d895c30448535ebaafe5f015a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bc6b3d895c30448535ebaafe5f015a9">&#9670;&nbsp;</a></span>setInitial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void State::setInitial </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>setter</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setter for _isInitial attribute</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">setter</td><td>The value to set the attribute to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
