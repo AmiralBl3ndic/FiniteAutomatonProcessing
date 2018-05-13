@@ -6,5 +6,6 @@
 #define TAI_CONSTANTS_H
 
 #define EMPTY_SYMBOL "*"
+#define NULL 0
 
 #endif //TAI_CONSTANTS_H
