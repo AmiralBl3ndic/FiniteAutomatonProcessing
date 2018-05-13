@@ -2,6 +2,7 @@
 #define TAI_TRANSITION_H
 
 #include "constants.h"
+#include "checkers.h"
 #include <string>
 #include <iostream>
 

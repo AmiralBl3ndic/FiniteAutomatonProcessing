@@ -8,6 +8,7 @@
 
 #include "constants.h"
 #include "State.h"
+#include "checkers.h"
 #include <string>
 #include <vector>
 #include <algorithm>
