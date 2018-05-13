@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updatealphabet',['updateAlphabet',['../class_automaton.html#a5eb729cd5854647fc8b9b0bb07984f68',1,'Automaton']]]
+  ['transition',['Transition',['../class_transition.html#ac8acaf8131fa45f08bf451f8b292b0ea',1,'Transition']]]
 ];
