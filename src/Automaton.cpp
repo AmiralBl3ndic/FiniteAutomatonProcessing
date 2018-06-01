@@ -300,3 +300,22 @@ std::string Automaton::readWord() const {  // TODO: test this method
 }
 
 
+
+/** @description Get the stateIndex ({int}) from its identifier
+ *
+ *  @param identifier The string identifier of the State to identify
+ *
+ *  @return the corresponding stateIndex, -1 if the identifier is not recognized
+ */
+int Automaton::getStateIndexFromIdentifier(const std::string &identifier) const {
+    int i(0);
+
+    for (i = 0; i < _states.size(); i++)
+        if (_states[i].getIdentifier() == identifier)
+            return i;
+
+    return -1;
+}
+
+
+

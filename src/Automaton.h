@@ -53,6 +53,16 @@ private:
      */
 	bool checkFileIntegrity(const std::string& filePath);
 
+
+	/** @description Get the stateIndex ({int}) from its identifier
+	 *
+	 *  @param identifier The string identifier of the State to identify
+	 *
+	 *  @return the corresponding stateIndex, -1 if the identifier is not recognized
+	 */
+	 int getStateIndexFromIdentifier(const std::string& identifier) const;
+
+
 public:
 
     /** @description Default constructor, requires an alphabet vector({std::string}) and a states vector ({State}), it has a verbose option (default set to false) for displaying warnings in case of use of default values
