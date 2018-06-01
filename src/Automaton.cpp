@@ -271,7 +271,7 @@ bool Automaton::isDeterminist() const {
 	for (i = 0; i < _states.size(); ++i) {
 		if (_states[i].getIsInitial()) 
 			flag++;
-		if (flag > 0) // if there is more than one initial state the automaton is non deterministic
+		if (flag > 1) // if there is more than one initial state the automaton is non deterministic
 			return false;
 		for (j = 0; j < _states[i].getTransitions().size(); ++j) 
 			for(k = 0; k < _states[i].getTransitions().size(); ++k)
@@ -303,7 +303,7 @@ bool Automaton::isStandard() {
 			}
 			flag++;
 		}
-		if (flag > 0) // if there is more than one initial state the automaton is not standard
+		if (flag > 1) // if there is more than one initial state the automaton is not standard
 			return false;
 	}
 
