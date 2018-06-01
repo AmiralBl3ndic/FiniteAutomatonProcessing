@@ -74,8 +74,10 @@ bool Transition::parseFromLine(const std::string &line, std::string &outgoing, s
         // Reading the last part (target state identifier) of the line
         while (i < line.size() && isDigit(line[i]))
             target.push_back(line[i++]);
+
+        return true;
     }
 
-    return true;
+    return false;
 };
 
