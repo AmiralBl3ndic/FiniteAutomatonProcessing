@@ -50,4 +50,13 @@ bool isDigits(const std::string&);
 bool isDigit(char toCheck);
 
 
+/** @description Converts a char to a std::string
+ *
+ *  @param c The character to convert to std::string
+ *
+ *  @return {std::string} The passed char casted as a string
+ */
+std::string charToString(const char c)
+
+
 #endif //TAI_CHECKERS_H

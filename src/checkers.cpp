@@ -79,3 +79,20 @@ bool isDigit(const char toCheck) {
 
     return find(digits.begin(), digits.end(), toCheck) != digits.end();
 }
+
+
+/** @description Converts a char to a std::string
+ *
+ *  @param c The character to convert to std::string
+ *
+ *  @return {std::string} The passed char casted as a string
+ */
+std::string charToString(const char c) {
+    stringstream s;
+
+    s.clear();
+
+    s << c;
+
+    return s.str();
+}
