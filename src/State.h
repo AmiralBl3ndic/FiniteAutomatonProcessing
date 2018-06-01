@@ -71,6 +71,15 @@ public:
      *  @param setter The value to set the attribute to
      */
      void setFinal (bool setter = true);
+
+
+     /** @description Checks if a State has a Transition with a given symbol
+      *
+      *  @param sym The Transition symbol
+      *
+      *  @return Whether or not the State has a Transition labeled with the passed symbol
+      */
+     bool hasTransition(const std::string& sym) const;
 };
 
 

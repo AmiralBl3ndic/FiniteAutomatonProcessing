@@ -15,7 +15,7 @@ using namespace std;
  * @param isFinal
  */
 State::State(const std::string &identifier, const bool isInitial, const bool isFinal) : _identifier(identifier), _isInitial(isInitial), _isFinal(isFinal) {
-    // TODO: implement this method
+    _transitions.clear();
 }
 
 
@@ -87,5 +87,22 @@ void State::setInitial(bool setter) {
  */
 void State::setFinal(bool setter) {
     _isFinal = setter;
+}
+
+
+/** @description Checks if a State has a Transition with a given symbol
+  *
+  *  @param sym The Transition symbol
+  *
+  *  @return Whether or not the State has a Transition labeled with the passed symbol
+  */
+bool State::hasTransition(const std::string &sym) const {
+    int i(0);
+
+    for (i = 0; i < _transitions.size(); i++)
+        if (sym == _transitions[i].getSymbol())
+            return true;
+
+    return false;
 }
 
