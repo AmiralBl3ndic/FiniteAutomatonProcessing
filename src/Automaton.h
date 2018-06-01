@@ -93,6 +93,13 @@ public:
      *  @return {bool} If all the characters of the passed string belong to the alphabet of the instance
      */
      bool checkStringAlphabet(const std::string& str) const;
+
+
+     /** @description Reads a word from keyboard input
+      *
+      *  @return {std::string} The read string
+      */
+     static std::string readWord() const;
 };
 
 

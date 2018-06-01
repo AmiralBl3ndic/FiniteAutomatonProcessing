@@ -265,7 +265,7 @@ bool Automaton::checkFileIntegrity(const std::string &filePath) {
  *
  *  @return {bool} If all the characters of the passed string belong to the alphabet of the instance
  */
-bool Automaton::checkStringAlphabet(const std::string &str) const {
+bool Automaton::checkStringAlphabet(const std::string &str) const {  // TODO: test this method
     int i(0), j(0);
     bool charValid;
 
@@ -281,4 +281,22 @@ bool Automaton::checkStringAlphabet(const std::string &str) const {
 
     return true;
 }
+
+
+
+/** @description Reads a word from keyboard input
+  *
+  *  @return {std::string} The read string
+  */
+std::string Automaton::readWord() const {  // TODO: test this method
+    string str;
+
+    // Clearing the input flux and reading a single word from it
+    cin.clear();
+    cin >> str;
+    cin.clear();
+
+    return str;
+}
+
 
