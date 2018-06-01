@@ -80,6 +80,16 @@ public:
       *  @return Whether or not the State has a Transition labeled with the passed symbol
       */
      bool hasTransition(const std::string& sym) const;
+
+
+     bool isFinal() const {
+		 return _isFinal;
+	 }
+
+
+	bool isInitial() const {
+		return _isInitial;
+	}
 };
 
 
