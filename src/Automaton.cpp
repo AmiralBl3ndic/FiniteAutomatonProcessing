@@ -257,3 +257,28 @@ bool Automaton::checkFileIntegrity(const std::string &filePath) {
     return currentLine == neededLines;
 }
 
+
+
+/** @description Checks if all the characters of a string belong to the alphabet of the instance
+ *
+ *  @param str The string to check
+ *
+ *  @return {bool} If all the characters of the passed string belong to the alphabet of the instance
+ */
+bool Automaton::checkStringAlphabet(const std::string &str) const {
+    int i(0), j(0);
+    bool charValid;
+
+    for (i = 0; i < str.size(); i++) {
+        charValid = false;
+        for (j = 0; j < _alphabet.size(); j++)
+            if (charToString(str[i]) == _alphabet[i])
+                charValid = true;
+
+        if (!charValid)
+            return false;
+    }
+
+    return true;
+}
+

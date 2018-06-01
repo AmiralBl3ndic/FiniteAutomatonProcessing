@@ -84,6 +84,15 @@ public:
      *  @return {bool} If the instance is asynchronous
      */
     bool isAsynchronous() const;
+
+
+    /** @description Checks if all the characters of a string belong to the alphabet of the instance
+     *
+     *  @param str The string to check
+     *
+     *  @return {bool} If all the characters of the passed string belong to the alphabet of the instance
+     */
+     bool checkStringAlphabet(const std::string& str) const;
 };
 
 
