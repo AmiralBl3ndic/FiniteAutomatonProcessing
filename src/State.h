@@ -71,6 +71,19 @@ public:
      *  @param setter The value to set the attribute to
      */
      void setFinal (bool setter = true);
+
+	 /** @description Getter for _isInitial attribute
+	  *	
+	  *  @return The value of the _isInitial attribute of the instance
+	 */
+	 bool getIsInitial() const;
+
+	 /** @description Getter for _isFinal attribute
+	 *
+	 *  @return The value of the _isFinal attribute of the instance
+	 */
+	 bool getIsFinal() const;
+
 };
 
 

@@ -89,3 +89,13 @@ void State::setFinal(bool setter) {
     _isFinal = setter;
 }
 
+bool State::getIsInitial() const
+{
+	return _isInitial;
+}
+
+bool State::getIsFinal() const
+{
+	return _isFinal;
+}
+

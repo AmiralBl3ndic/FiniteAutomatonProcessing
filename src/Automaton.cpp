@@ -201,6 +201,11 @@ bool Automaton::isAsynchronous() const { // TODO: test this method
     return asynchronous;
 }
 
+bool Automaton::isDeterminist() const
+{
+	return false;
+}
+
 
 /** @description Adds a transition to the instance by appending it to the right State (in the _states attribute), it does it only if the identifiers are recognized
  *
@@ -256,4 +261,51 @@ bool Automaton::checkFileIntegrity(const std::string &filePath) {
 
     return currentLine == neededLines;
 }
+/** @description Checks whether the instance is a deterministic automaton or not
+*
+*  @return {bool} If the instance is deterministic
+*/
+bool Automaton::isDeterminist() const {
+	int i(0), j(0), flag(0), k(0);
 
+	for (i = 0; i < _states.size(); ++i) {
+		if (_states[i].getIsInitial()) 
+			flag++;
+		if (flag > 0) // if there is more than one initial state the automaton is non deterministic
+			return false;
+		for (j = 0; j < _states[i].getTransitions().size(); ++j) 
+			for(k = 0; k < _states[i].getTransitions().size(); ++k)
+		{
+				// if there is more than one transition wth the same symbol the automaton is non deterministic
+				if (_states[i].getTransitions()[j].getSymbol() == _states[i].getTransitions()[k].getSymbol())
+					return false;
+		}
+	}
+
+	return true;
+}
+
+/* @description Checks if an automaton is standard or not
+*
+* @return {bool} If the instance is standard
+*/
+bool Automaton::isStandard() {
+	int i(0), j(0), flag(0), k(0);
+	std::string initial_identifier;
+
+	for (i = 0; i < _states.size(); ++i) {
+		if (_states[i].getIsInitial()) {
+			initial_identifier = _states[i].getIdentifier(); //saving the identifier of the initial state
+			for (j = 0; j < _states[i].getTransitions().size(); ++j) {
+				//if a transition ends at the inital state then the automaton is not standard
+				if (_states[i].getTransitions()[j].getEndStateIdentifier() == initial_identifier);
+					return false;
+			}
+			flag++;
+		}
+		if (flag > 0) // if there is more than one initial state the automaton is not standard
+			return false;
+	}
+
+	return true;
+}
