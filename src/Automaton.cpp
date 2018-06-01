@@ -319,3 +319,13 @@ int Automaton::getStateIndexFromIdentifier(const std::string &identifier) const 
 
 
 
+/**  @description Getter for the number of states of the instance
+  *
+  *  @return The number of states of the instance
+  */
+int Automaton::numberOfStates() const {
+    return static_cast<int>(_states.size());
+}
+
+
+

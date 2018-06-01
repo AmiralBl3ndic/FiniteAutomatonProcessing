@@ -110,6 +110,13 @@ public:
       *  @return {std::string} The read string
       */
      static std::string readWord() const;
+
+
+     /** @description Getter for the number of states of the instance
+      *
+      *  @return The number of states of the instance
+      */
+     int numberOfStates() const;
 };
 
 
