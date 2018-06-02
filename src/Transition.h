@@ -32,6 +32,12 @@ public:
 	 */
 	 std::string getSymbol() const;
 
+	 /** @description Getter for the _endStateIdentifier attribute
+	 *
+	 * @return {std::string} The _endStateIdentifier attribute of the current instance of the class
+	 */
+	 std::string getEndStateIdentifier() const;
+
 
 	 friend bool operator==(Transition const&, Transition const&);
 

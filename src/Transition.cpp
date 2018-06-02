@@ -25,6 +25,16 @@ std::string Transition::getSymbol() const { // TODO: test this method
 }
 
 
+/** @description Getter for the _endStateIdentifier attribute
+*
+* @return {std::string} The _endStateIdentifier attribute of the current instance of the class
+*/
+std::string Transition::getEndStateIdentifier() const
+{
+	return _endStateIdentifier;
+}
+
+
 bool operator==(Transition const &tr1, Transition const &tr2) {
     return (tr1._symbol == tr2._symbol && tr1._endStateIdentifier == tr2._endStateIdentifier);
 }

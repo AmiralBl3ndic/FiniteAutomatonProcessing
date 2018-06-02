@@ -8,7 +8,7 @@
 
 #include "constants.h"
 #include "State.h"
-//#include "Transition.h"
+#include "Transition.h"
 #include "checkers.h"
 #include <cstdio>
 #include <string>
@@ -136,6 +136,24 @@ public:
       *	 @return Whether or not the word has been recognized by the instance Automaton
       */
       bool recognize(const std::string& word);
+
+     /** @description Checks if an automaton is deterministic or not
+      *
+      * @return {bool} If the instance is deterministic
+      */
+	  bool isDeterminist() const;
+
+	 /** @description Checks if an automaton is standard or not
+	  *
+  	  * @return {bool} If the instance is standard
+	  */
+	  bool isStandard();
+
+
+	  /** @description Standardizes an Automaton instance
+	   *
+	   */
+	  void standardize();
 };
 
 

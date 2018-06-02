@@ -256,6 +256,98 @@ bool Automaton::checkFileIntegrity(const std::string &filePath) {
 
     return currentLine == neededLines;
 }
+/** @description Checks whether the instance is a deterministic automaton or not
+*
+*  @return {bool} If the instance is deterministic
+*/
+bool Automaton::isDeterminist() const {
+	int i(0), j(0), flag(0), k(0);
+
+	for (i = 0; i < _states.size(); ++i) {
+		if (_states[i].getIsInitial()) 
+			flag++;
+		if (flag > 1){ // if there is more than one initial state the automaton is non deterministic
+			cout << "There is more than one initial state, the automaton is non deterministic\n";
+			return false;
+		}
+		for (j = 0; j < _states[i].getTransitions().size(); ++j) 
+			for(k = 0; k < _states[i].getTransitions().size(); ++k)
+		{
+				// if there is more than one transition with the same symbol the automaton is non deterministic
+				if (_states[i].getTransitions()[j].getSymbol() == _states[i].getTransitions()[k].getSymbol()){
+					cout << "There is more than one transition with the same symbol " <<_states[i].getTransitions()[j].getSymbol();
+					return false;
+				}
+		}
+	}
+
+	return true;
+}
+
+/* @description Checks if an automaton is standard or not
+*
+* @return {bool} If the instance is standard
+*/
+bool Automaton::isStandard() {
+	int i(0), j(0), flag(0), k(0);
+	std::string initial_identifier;
+
+	for (i = 0; i < _states.size(); ++i) {
+		if(_states[i].getIsInitial()) {
+			initial_identifier = _states[i].getIdentifier(); //saving the identifier of the initial state
+			for (j = 0; j < _states[i].getTransitions().size(); ++j) {
+				//if a transition ends at the inital state then the automaton is not standard
+				if (_states[i].getTransitions()[j].getEndStateIdentifier() == initial_identifier)
+				{
+					cout << "Transition from |"<< _states[i].getTransitions()[j].getEndStateIdentifier()<< "| with symbol " << _states[i].getTransitions()[j].getSymbol() << " ends at the inital state, the automaton is not standard\n";\n";
+					return false;
+				}
+			}
+			flag++;
+		}
+		if (flag > 1){ // if there is more than one initial state the automaton is not standard
+			cout << "More than one initial state, the automaton is not standard\n";
+			return false;
+		}
+	}
+	logVerbose("Automaton is standard");
+	return true;
+}
+/* @description Standardization of an automaton
+*
+*/
+void Automaton::standardize()
+{
+	int i(0), flag(0);
+
+	State tmp("i", true);  // creating a new initial state called i
+
+	bool isFinal = false;
+
+	for(i = 0; i < _states.size(); ++i) {
+		if(_states[i].getIsInitial()) {		//checking for the initial state
+			_states[i].setInitial(false);	//resteing the initial state
+
+			if(flag == 0)
+				tmp.getTransitions() = _states[i].getTransitions(); // copying the transition of the original transition state to the new one
+			//if we have more than one initial state then we will add the states of the other initial state to our new initial state tmp
+			if (flag > 0) 
+				tmp.getTransitions().insert(tmp.getTransitions().end(), _states[i].getTransitions().begin(), _states[i].getTransitions().end());
+			
+			flag++;
+		}
+	}
+	for (i = 0; i < _states.size(); ++i) {
+		if (_states[i].getIsFinal())		
+		{
+			isFinal = true;	// checking if our initial state is also final
+			break;
+		}
+	}
+	tmp.setFinal(isFinal);
+
+	_states.insert(_states.begin(), tmp); //adding our new initial state to the automaton
+}
 
 
 
