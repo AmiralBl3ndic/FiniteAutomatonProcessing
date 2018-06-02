@@ -460,7 +460,7 @@ bool Automaton::recognizeRecur(const std::string &word) {
         return true;
 
 
-    if (_states[_activeStateIndex].hasTransition(charToString(word[0]))) {
+    if (currentState.hasTransition(charToString(word[0]))) {
         trs_indexes = currentState.getTransitionsWithSymbol(charToString(word[0]));
 
         for (i = 0; i < trs_indexes.size(); i++) {
@@ -469,6 +469,20 @@ bool Automaton::recognizeRecur(const std::string &word) {
             if (recognizeRecur(word.substr(1))) {
                 _activeStateIndex = cpActiveIndex;
                 return true;
+            }
+        }
+    } else {
+        // Check for empty symbol labelled transitions
+        if (currentState.hasTransition(EMPTY_SYMBOL)) {
+            trs_indexes = currentState.getTransitionsWithSymbol(EMPTY_SYMBOL);
+
+            for (i = 0; i < trs_indexes.size(); i++) {
+                _activeStateIndex = getStateIndexFromIdentifier(currentState.getTransitions()[trs_indexes[i]].getEndStateIdentifier());
+
+                if (recognizeRecur(word)) {
+                    _activeStateIndex = cpActiveIndex;
+                    return true;
+                }
             }
         }
     }
