@@ -480,9 +480,9 @@ bool Automaton::recognizeRecur(const std::string &word) {
 
 
 /** @description Checks if the Automaton instance is complete (i.e. if it is a complete Automaton)
-   *
-   *  @return Whether or not the instance is complete
-   */
+*
+*  @return Whether or not the instance is complete
+*/
 bool Automaton::isComplete() const {
     unsigned int i(0), j(0);
 
@@ -492,6 +492,32 @@ bool Automaton::isComplete() const {
                 return false;
 
     return true;
+}
+
+
+/** @description Makes the Automaton instance complete
+*
+*/
+void Automaton::complete() {
+    unsigned int i(0), j(0);
+    State trashState("P");
+
+    if (isComplete())
+        return;
+
+    // Completing the trash state (adding a transition for each symbol of the alphabet)
+    for (i = 0; i < _alphabet.size(); i++)
+        trashState.addTransition(_alphabet[i], "P");
+
+    // Adding the new trash state to the list of states
+    _states.push_back(trashState);
+
+    // Exploring all the states (except the trash state) to find missing transitions
+    for (i = 0; i < _states.size() - 1; i++)
+        for (j = 0; j < _alphabet.size(); j++)
+            if (!_states[i].hasTransition(_alphabet[j])) {
+                _states[i].addTransition(_alphabet[j], "P");
+            }
 }
 
 

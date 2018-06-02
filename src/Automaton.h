@@ -163,6 +163,12 @@ public:
 	   *  @return Whether or not the instance is complete
 	   */
 	  bool isComplete() const;
+
+
+	  /** @description Makes the Automaton instance complete
+	   *
+	   */
+	  void complete();
 };
 
 
