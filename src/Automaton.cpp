@@ -261,7 +261,7 @@ bool Automaton::checkFileIntegrity(const std::string &filePath) {
 *  @return {bool} If the instance is deterministic
 */
 bool Automaton::isDeterminist() const {
-	int i(0), j(0), flag(0), k(0);
+	unsigned int i(0), j(0), flag(0), k(0);
 
 	for (i = 0; i < _states.size(); ++i) {
 		if (_states[i].getIsInitial()) 
@@ -289,7 +289,7 @@ bool Automaton::isDeterminist() const {
 * @return {bool} If the instance is standard
 */
 bool Automaton::isStandard() {
-	int i(0), j(0), flag(0), k(0);
+	unsigned int i(0), j(0), flag(0);
 	std::string initial_identifier;
 
 	for (i = 0; i < _states.size(); ++i) {
@@ -299,7 +299,7 @@ bool Automaton::isStandard() {
 				//if a transition ends at the inital state then the automaton is not standard
 				if (_states[i].getTransitions()[j].getEndStateIdentifier() == initial_identifier)
 				{
-					cout << "Transition from |"<< _states[i].getTransitions()[j].getEndStateIdentifier()<< "| with symbol " << _states[i].getTransitions()[j].getSymbol() << " ends at the inital state, the automaton is not standard\n";\n";
+					cout << "Transition from |"<< _states[i].getTransitions()[j].getEndStateIdentifier()<< "| with symbol " << _states[i].getTransitions()[j].getSymbol() << " ends at the initial state, the automaton is not standard\n";
 					return false;
 				}
 			}
@@ -318,7 +318,7 @@ bool Automaton::isStandard() {
 */
 void Automaton::standardize()
 {
-	int i(0), flag(0);
+	unsigned int i(0), flag(0);
 
 	State tmp("i", true);  // creating a new initial state called i
 
@@ -464,7 +464,7 @@ bool Automaton::recognizeRecur(const std::string &word) {
         trs_indexes = currentState.getTransitionsWithSymbol(charToString(word[0]));
 
         for (i = 0; i < trs_indexes.size(); i++) {
-            _activeStateIndex = getStateIndexFromIdentifier(currentState.getTransitions()[trs_indexes[i]].getSymbol());
+            _activeStateIndex = getStateIndexFromIdentifier(currentState.getTransitions()[trs_indexes[i]].getEndStateIdentifier());
 
             if (recognizeRecur(word.substr(1))) {
                 _activeStateIndex = cpActiveIndex;

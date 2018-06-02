@@ -137,11 +137,13 @@ public:
       */
       bool recognize(const std::string& word);
 
+
      /** @description Checks if an automaton is deterministic or not
       *
       * @return {bool} If the instance is deterministic
       */
 	  bool isDeterminist() const;
+
 
 	 /** @description Checks if an automaton is standard or not
 	  *
