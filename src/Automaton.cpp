@@ -266,7 +266,7 @@ bool Automaton::checkFileIntegrity(const std::string &filePath) {
  *  @return {bool} If all the characters of the passed string belong to the alphabet of the instance
  */
 bool Automaton::checkStringAlphabet(const std::string &str) const {  // TODO: test this method
-    int i(0), j(0);
+    unsigned int i(0), j(0);
     bool charValid;
 
     for (i = 0; i < str.size(); i++) {
@@ -288,7 +288,7 @@ bool Automaton::checkStringAlphabet(const std::string &str) const {  // TODO: te
   *
   *  @return {std::string} The read string
   */
-std::string Automaton::readWord() const {  // TODO: test this method
+std::string Automaton::readWord() {  // TODO: test this method
     string str;
 
     // Clearing the input flux and reading a single word from it
@@ -308,7 +308,7 @@ std::string Automaton::readWord() const {  // TODO: test this method
  *  @return the corresponding stateIndex, -1 if the identifier is not recognized
  */
 int Automaton::getStateIndexFromIdentifier(const std::string &identifier) const {
-    int i(0);
+    unsigned int i(0);
 
     for (i = 0; i < _states.size(); i++)
         if (_states[i].getIdentifier() == identifier)
@@ -325,6 +325,64 @@ int Automaton::getStateIndexFromIdentifier(const std::string &identifier) const 
   */
 int Automaton::numberOfStates() const {
     return static_cast<int>(_states.size());
+}
+
+
+/** @description Tries to recognize a word following the states (State) and transitions (Transition) of the instance Automaton
+  *
+  *  @param word The word to try to recognize
+  *
+  *	 @return Whether or not the word has been recognized by the instance Automaton
+  */
+bool Automaton::recognize(const std::string &word) {
+    unsigned int i(0);
+    int cpActiveIndex(_activeStateIndex);
+
+    for (i = 0; i < _states.size(); i++) {
+        _activeStateIndex = i;
+        if (recognizeRecur(word)) {
+            _activeStateIndex = cpActiveIndex;
+            return true;
+        }
+    }
+
+    _activeStateIndex = cpActiveIndex;
+
+    return false;
+}
+
+
+/** @description Recursive method to check if a word is recognized by the instance Automaton
+  *
+  *  @param word the word to recognize
+  *
+  *  @return If the passed word has been recognized by the instance Automaton
+  */
+bool Automaton::recognizeRecur(const std::string &word) {
+    unsigned int i(0);
+    int cpActiveIndex(_activeStateIndex);
+    vector<int> trs_indexes;
+    State currentState = _states[_activeStateIndex];
+
+    if (word.empty() && currentState.isFinal())
+        return true;
+
+
+    if (_states[_activeStateIndex].hasTransition(charToString(word[0]))) {
+        trs_indexes = currentState.getTransitionsWithSymbol(charToString(word[0]));
+
+        for (i = 0; i < trs_indexes.size(); i++) {
+            _activeStateIndex = getStateIndexFromIdentifier(currentState.getTransitions()[trs_indexes[i]].getSymbol());
+
+            if (recognizeRecur(word.substr(1))) {
+                _activeStateIndex = cpActiveIndex;
+                return true;
+            }
+        }
+    }
+
+
+    return false;
 }
 
 

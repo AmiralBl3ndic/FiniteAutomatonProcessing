@@ -67,7 +67,7 @@ bool State::transitionExists(Transition ref) const {
 }
 
 
-std::string State::getIdentifier() {
+std::string State::getIdentifier() const {
     return _identifier;
 }
 
@@ -97,12 +97,32 @@ void State::setFinal(bool setter) {
   *  @return Whether or not the State has a Transition labeled with the passed symbol
   */
 bool State::hasTransition(const std::string &sym) const {
-    int i(0);
+    unsigned int i(0);
 
     for (i = 0; i < _transitions.size(); i++)
         if (sym == _transitions[i].getSymbol())
             return true;
 
     return false;
+}
+
+
+
+std::vector<int> State::getTransitionsWithSymbol(const std::string &sym) const {
+    unsigned int i(0);
+    vector<int> ret;
+
+    ret.push_back(-1);
+
+    if (!hasTransition(sym))
+        return ret;
+
+    ret.pop_back();
+
+    for (i = 0; i < _transitions.size(); i++)
+        if (_transitions[i].getSymbol() == sym)
+            ret.push_back(static_cast<int>(i));
+
+    return ret;
 }
 

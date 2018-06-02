@@ -8,6 +8,7 @@
 
 #include "constants.h"
 #include "State.h"
+//#include "Transition.h"
 #include "checkers.h"
 #include <cstdio>
 #include <string>
@@ -63,6 +64,15 @@ private:
 	 int getStateIndexFromIdentifier(const std::string& identifier) const;
 
 
+	 /** @description Recursive method to check if a word is recognized by the instance Automaton
+	  *
+	  *  @param word the word to recognize
+	  *
+	  *  @return If the passed word has been recognized by the instance Automaton
+	  */
+	 bool recognizeRecur(const std::string& word);
+
+
 public:
 
     /** @description Default constructor, requires an alphabet vector({std::string}) and a states vector ({State}), it has a verbose option (default set to false) for displaying warnings in case of use of default values
@@ -109,7 +119,7 @@ public:
       *
       *  @return {std::string} The read string
       */
-     static std::string readWord() const;
+     static std::string readWord();
 
 
      /** @description Getter for the number of states of the instance
@@ -117,6 +127,15 @@ public:
       *  @return The number of states of the instance
       */
      int numberOfStates() const;
+
+
+     /** @description Tries to recognize a word following the states (State) and transitions (Transition) of the instance Automaton
+      *
+      *  @param word The word to try to recognize
+      *
+      *	 @return Whether or not the word has been recognized by the instance Automaton
+      */
+      bool recognize(const std::string& word);
 };
 
 

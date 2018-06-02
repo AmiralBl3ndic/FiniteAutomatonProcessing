@@ -56,7 +56,7 @@ bool isDigit(char toCheck);
  *
  *  @return {std::string} The passed char casted as a string
  */
-std::string charToString(const char c)
+std::string charToString(char c);
 
 
 #endif //TAI_CHECKERS_H

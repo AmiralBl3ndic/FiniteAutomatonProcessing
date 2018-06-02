@@ -5,6 +5,7 @@
 #include <vector>
 #include <cstdlib>
 #include <algorithm> // So that we can easily find values inside our vectors
+#include <iostream>
 #include "Transition.h"
 
 /** @description This class represents an Automaton's State, it contains a list of transitions (Transition)
@@ -45,7 +46,7 @@ public:
 	 *
 	 * 	@return The value of the _identifier attribute of the instance
 	 */
-	std::string getIdentifier();
+	std::string getIdentifier() const;
 
 
     /** @description Part setter for the _transitions attribute: this method allows a `push_back()` to the _transitions attribute
@@ -90,6 +91,15 @@ public:
 	bool isInitial() const {
 		return _isInitial;
 	}
+
+
+	/**  @description Get the indexes of the Transitions labelled with a specified symbol
+	 *
+	 *   @param sym Symbol that labels the transitions to find
+	 *
+	 *   @return The indexes of the Transitions labelled with sym, -1 if no Transition matches
+	 */
+	 std::vector<int> getTransitionsWithSymbol(const std::string& sym) const;
 };
 
 
