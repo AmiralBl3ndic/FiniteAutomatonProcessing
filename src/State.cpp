@@ -15,7 +15,7 @@ using namespace std;
  * @param isFinal
  */
 State::State(const std::string &identifier, const bool isInitial, const bool isFinal) : _identifier(identifier), _isInitial(isInitial), _isFinal(isFinal) {
-    // TODO: implement this method
+    _transitions.clear();
 }
 
 
