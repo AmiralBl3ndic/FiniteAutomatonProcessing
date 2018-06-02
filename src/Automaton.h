@@ -96,6 +96,8 @@ public:
 	* @return {bool} If the instance is standard
 	*/
 	bool isStandard();
+
+	void standardize();
 };
 
 

@@ -201,11 +201,6 @@ bool Automaton::isAsynchronous() const { // TODO: test this method
     return asynchronous;
 }
 
-bool Automaton::isDeterminist() const
-{
-	return false;
-}
-
 
 /** @description Adds a transition to the instance by appending it to the right State (in the _states attribute), it does it only if the identifiers are recognized
  *
@@ -271,7 +266,7 @@ bool Automaton::isDeterminist() const {
 	for (i = 0; i < _states.size(); ++i) {
 		if (_states[i].getIsInitial()) 
 			flag++;
-		if (flag > 0) // if there is more than one initial state the automaton is non deterministic
+		if (flag > 1) // if there is more than one initial state the automaton is non deterministic
 			return false;
 		for (j = 0; j < _states[i].getTransitions().size(); ++j) 
 			for(k = 0; k < _states[i].getTransitions().size(); ++k)
@@ -294,18 +289,54 @@ bool Automaton::isStandard() {
 	std::string initial_identifier;
 
 	for (i = 0; i < _states.size(); ++i) {
-		if (_states[i].getIsInitial()) {
+		if(_states[i].getIsInitial()) {
 			initial_identifier = _states[i].getIdentifier(); //saving the identifier of the initial state
 			for (j = 0; j < _states[i].getTransitions().size(); ++j) {
 				//if a transition ends at the inital state then the automaton is not standard
-				if (_states[i].getTransitions()[j].getEndStateIdentifier() == initial_identifier);
+				if (_states[i].getTransitions()[j].getEndStateIdentifier() == initial_identifier)
 					return false;
 			}
 			flag++;
 		}
-		if (flag > 0) // if there is more than one initial state the automaton is not standard
+		if (flag > 1) // if there is more than one initial state the automaton is not standard
 			return false;
 	}
 
 	return true;
 }
+/* @description Standardization of an automaton
+*
+*/
+void Automaton::standardize()
+{
+	int i(0), flag(0);
+
+	State tmp("i", true);  // creating a new initial state called i
+
+	bool isFinal = false;
+
+	for(i = 0; i < _states.size(); ++i) {
+		if(_states[i].getIsInitial()) {		//checking for the initial state
+			_states[i].setInitial(false);	//resteing the initial state
+
+			if(flag == 0)
+				tmp.getTransitions() = _states[i].getTransitions(); // copying the transition of the original transition state to the new one
+			//if we have more than one initial state then we will add the states of the other initial state to our new initial state tmp
+			if (flag > 0) 
+				tmp.getTransitions().insert(tmp.getTransitions().end(), _states[i].getTransitions().begin(), _states[i].getTransitions().end());
+			
+			flag++;
+		}
+	}
+	for (i = 0; i < _states.size(); ++i) {
+		if (_states[i].getIsFinal())		
+		{
+			isFinal = true;	// checking if our initial state is also final
+			break;
+		}
+	}
+	tmp.setFinal(isFinal);
+
+	_states.insert(_states.begin(), tmp); //adding our new initial state to the automaton
+}
+
