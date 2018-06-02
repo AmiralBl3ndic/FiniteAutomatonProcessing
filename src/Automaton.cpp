@@ -266,14 +266,18 @@ bool Automaton::isDeterminist() const {
 	for (i = 0; i < _states.size(); ++i) {
 		if (_states[i].getIsInitial()) 
 			flag++;
-		if (flag > 1) // if there is more than one initial state the automaton is non deterministic
+		if (flag > 1){ // if there is more than one initial state the automaton is non deterministic
+			cout << "There is more than one initial state, the automaton is non deterministic\n";
 			return false;
+		}
 		for (j = 0; j < _states[i].getTransitions().size(); ++j) 
 			for(k = 0; k < _states[i].getTransitions().size(); ++k)
 		{
-				// if there is more than one transition wth the same symbol the automaton is non deterministic
-				if (_states[i].getTransitions()[j].getSymbol() == _states[i].getTransitions()[k].getSymbol())
+				// if there is more than one transition with the same symbol the automaton is non deterministic
+				if (_states[i].getTransitions()[j].getSymbol() == _states[i].getTransitions()[k].getSymbol()){
+					cout << "There is more than one transition with the same symbol " <<_states[i].getTransitions()[j].getSymbol();
 					return false;
+				}
 		}
 	}
 
@@ -294,14 +298,19 @@ bool Automaton::isStandard() {
 			for (j = 0; j < _states[i].getTransitions().size(); ++j) {
 				//if a transition ends at the inital state then the automaton is not standard
 				if (_states[i].getTransitions()[j].getEndStateIdentifier() == initial_identifier)
+				{
+					cout << "Transition from |"<< _states[i].getTransitions()[j].getEndStateIdentifier()<< "| with symbol " << _states[i].getTransitions()[j].getSymbol() << " ends at the inital state, the automaton is not standard\n";\n";
 					return false;
+				}
 			}
 			flag++;
 		}
-		if (flag > 1) // if there is more than one initial state the automaton is not standard
+		if (flag > 1){ // if there is more than one initial state the automaton is not standard
+			cout << "More than one initial state, the automaton is not standard\n";
 			return false;
+		}
 	}
-
+	logVerbose("Automaton is standard");
 	return true;
 }
 /* @description Standardization of an automaton
