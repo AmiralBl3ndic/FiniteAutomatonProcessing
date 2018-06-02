@@ -156,6 +156,13 @@ public:
 	   *
 	   */
 	  void standardize();
+
+
+	  /** @description Checks if the Automaton instance is complete (i.e. if it is a complete Automaton)
+	   *
+	   *  @return Whether or not the instance is complete
+	   */
+	  bool isComplete() const;
 };
 
 

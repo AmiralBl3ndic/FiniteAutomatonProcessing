@@ -479,3 +479,20 @@ bool Automaton::recognizeRecur(const std::string &word) {
 
 
 
+/** @description Checks if the Automaton instance is complete (i.e. if it is a complete Automaton)
+   *
+   *  @return Whether or not the instance is complete
+   */
+bool Automaton::isComplete() const {
+    unsigned int i(0), j(0);
+
+    for (i = 0; i < _states.size(); i++)
+        for (j = 0; j < _alphabet.size(); j++)
+            if (!_states[i].hasTransition(_alphabet[j]))
+                return false;
+
+    return true;
+}
+
+
+
