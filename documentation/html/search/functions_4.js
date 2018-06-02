@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['setfinal',['setFinal',['../class_state.html#a72dbda671cb252079f20c6164fbd790b',1,'State']]],
-  ['setinitial',['setInitial',['../class_state.html#a1bc6b3d895c30448535ebaafe5f015a9',1,'State']]],
-  ['state',['State',['../class_state.html#a3092d4a73cd0b7cebebb9aa3fec24d0a',1,'State']]]
+  ['isasynchronous',['isAsynchronous',['../class_automaton.html#a5661d627898a3a668b15a5d3507aefe8',1,'Automaton']]],
+  ['isdeterminist',['isDeterminist',['../class_automaton.html#a27b72847c3a55de5ab8039bef0d66917',1,'Automaton']]],
+  ['isstandard',['isStandard',['../class_automaton.html#a11f2853a253808d8bce42543b376ee54',1,'Automaton']]]
 ];

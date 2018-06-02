@@ -101,13 +101,19 @@ public:
 	 */
 	 std::vector<int> getTransitionsWithSymbol(const std::string& sym) const;
 
+
 	 /** @description Getter for _isInitial attribute
+	  *
+	  *  @warning This method is deprecated and will be removed, use State::isInitial() method instead
 	  *
 	  *  @return The value of the _isInitial attribute of the instance
 	 */
 	 bool getIsInitial() const;
 
+
 	 /** @description Getter for _isFinal attribute
+	 *
+	 *  @warning This method is deprecated and will be removed, use State::isFinal() method instead
 	 *
 	 *  @return The value of the _isFinal attribute of the instance
 	 */

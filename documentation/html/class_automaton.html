@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Finite Automaton Processor
-   &#160;<span id="projectnumber">0.0.0 - dev</span>
+   &#160;<span id="projectnumber">0.0.0</span>
    </div>
   </td>
  </tr>
@@ -82,6 +82,7 @@ $(document).ready(function(){initNavTree('class_automaton.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_automaton-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Automaton Class Reference</div>  </div>
@@ -100,6 +101,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5eb729cd5854647fc8b9b0bb07984f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5661d627898a3a668b15a5d3507aefe8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#a5661d627898a3a668b15a5d3507aefe8">isAsynchronous</a> () const</td></tr>
 <tr class="separator:a5661d627898a3a668b15a5d3507aefe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abca4f921df331df2a4c20199d54eb7b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#abca4f921df331df2a4c20199d54eb7b6">checkStringAlphabet</a> (const std::string &amp;str) const</td></tr>
+<tr class="separator:abca4f921df331df2a4c20199d54eb7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe0bcb7fbdff3cac8b069a38a24e64b9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#afe0bcb7fbdff3cac8b069a38a24e64b9">numberOfStates</a> () const</td></tr>
+<tr class="separator:afe0bcb7fbdff3cac8b069a38a24e64b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8955dccb6d05b0865b82408c97a2b0dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#a8955dccb6d05b0865b82408c97a2b0dd">recognize</a> (const std::string &amp;word)</td></tr>
+<tr class="separator:a8955dccb6d05b0865b82408c97a2b0dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b72847c3a55de5ab8039bef0d66917"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#a27b72847c3a55de5ab8039bef0d66917">isDeterminist</a> () const</td></tr>
+<tr class="separator:a27b72847c3a55de5ab8039bef0d66917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11f2853a253808d8bce42543b376ee54"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#a11f2853a253808d8bce42543b376ee54">isStandard</a> ()</td></tr>
+<tr class="separator:a11f2853a253808d8bce42543b376ee54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c2252d331917f0793673878874ab21d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#a3c2252d331917f0793673878874ab21d">standardize</a> ()</td></tr>
+<tr class="separator:a3c2252d331917f0793673878874ab21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a0b6ac7000c1182565be03da2a72413c4"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_automaton.html#a0b6ac7000c1182565be03da2a72413c4">readWord</a> ()</td></tr>
+<tr class="separator:a0b6ac7000c1182565be03da2a72413c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is the representation of an <a class="el" href="class_automaton.html">Automaton</a> : it contains a list of states (<a class="el" href="class_state.html">State</a>) which all contain a list of transitions (<a class="el" href="class_transition.html">Transition</a>) </p>
@@ -208,6 +226,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="abca4f921df331df2a4c20199d54eb7b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abca4f921df331df2a4c20199d54eb7b6">&#9670;&nbsp;</a></span>checkStringAlphabet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Automaton::checkStringAlphabet </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if all the characters of a string belong to the alphabet of the instance</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The string to check</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{bool} If all the characters of the passed string belong to the alphabet of the instance </dd></dl>
+
+</div>
+</div>
 <a id="a5661d627898a3a668b15a5d3507aefe8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5661d627898a3a668b15a5d3507aefe8">&#9670;&nbsp;</a></span>isAsynchronous()</h2>
 
@@ -224,6 +268,136 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Checks whether the instance is an asynchronous automaton or not</p>
 <dl class="section return"><dt>Returns</dt><dd>{bool} If the instance is asynchronous </dd></dl>
+
+</div>
+</div>
+<a id="a27b72847c3a55de5ab8039bef0d66917"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27b72847c3a55de5ab8039bef0d66917">&#9670;&nbsp;</a></span>isDeterminist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Automaton::isDeterminist </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if an automaton is deterministic or not</p>
+<dl class="section return"><dt>Returns</dt><dd>{bool} If the instance is deterministic</dd></dl>
+<p>Checks whether the instance is a deterministic automaton or not</p>
+<dl class="section return"><dt>Returns</dt><dd>{bool} If the instance is deterministic </dd></dl>
+
+</div>
+</div>
+<a id="a11f2853a253808d8bce42543b376ee54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11f2853a253808d8bce42543b376ee54">&#9670;&nbsp;</a></span>isStandard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Automaton::isStandard </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if an automaton is standard or not</p>
+<dl class="section return"><dt>Returns</dt><dd>{bool} If the instance is standard </dd></dl>
+
+</div>
+</div>
+<a id="afe0bcb7fbdff3cac8b069a38a24e64b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe0bcb7fbdff3cac8b069a38a24e64b9">&#9670;&nbsp;</a></span>numberOfStates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Automaton::numberOfStates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter for the number of states of the instance</p>
+<dl class="section return"><dt>Returns</dt><dd>The number of states of the instance </dd></dl>
+
+</div>
+</div>
+<a id="a0b6ac7000c1182565be03da2a72413c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b6ac7000c1182565be03da2a72413c4">&#9670;&nbsp;</a></span>readWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Automaton::readWord </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Reads a word from keyboard input</p>
+<dl class="section return"><dt>Returns</dt><dd>{std::string} The read string </dd></dl>
+
+</div>
+</div>
+<a id="a8955dccb6d05b0865b82408c97a2b0dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8955dccb6d05b0865b82408c97a2b0dd">&#9670;&nbsp;</a></span>recognize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Automaton::recognize </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>word</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tries to recognize a word following the states (<a class="el" href="class_state.html">State</a>) and transitions (<a class="el" href="class_transition.html">Transition</a>) of the instance <a class="el" href="class_automaton.html">Automaton</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">word</td><td>The word to try to recognize</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether or not the word has been recognized by the instance <a class="el" href="class_automaton.html">Automaton</a> </dd></dl>
+
+</div>
+</div>
+<a id="a3c2252d331917f0793673878874ab21d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c2252d331917f0793673878874ab21d">&#9670;&nbsp;</a></span>standardize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Automaton::standardize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Standardizes an <a class="el" href="class_automaton.html">Automaton</a> instance </p>
 
 </div>
 </div>

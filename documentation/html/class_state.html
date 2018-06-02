@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Finite Automaton Processor
-   &#160;<span id="projectnumber">0.0.0 - dev</span>
+   &#160;<span id="projectnumber">0.0.0</span>
    </div>
   </td>
  </tr>
@@ -98,14 +98,28 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a64f3f5595b34e97b35597d3844648d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0eef598b3f643ee9004c1c56d045bb0f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_transition.html">Transition</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a0eef598b3f643ee9004c1c56d045bb0f">getTransitions</a> () const</td></tr>
 <tr class="separator:a0eef598b3f643ee9004c1c56d045bb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af495568db8f81ebc64c49967c5e0de70"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#af495568db8f81ebc64c49967c5e0de70">getIdentifier</a> ()</td></tr>
-<tr class="separator:af495568db8f81ebc64c49967c5e0de70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add36072bee39cd72b7c94b8a26b80960"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#add36072bee39cd72b7c94b8a26b80960">getIdentifier</a> () const</td></tr>
+<tr class="separator:add36072bee39cd72b7c94b8a26b80960"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61b58eebbb840c2428c98edb2a9249d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a61b58eebbb840c2428c98edb2a9249d9">addTransition</a> (const std::string &amp;symbol, const std::string &amp;identifier)</td></tr>
 <tr class="separator:a61b58eebbb840c2428c98edb2a9249d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bc6b3d895c30448535ebaafe5f015a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a1bc6b3d895c30448535ebaafe5f015a9">setInitial</a> (bool setter=true)</td></tr>
 <tr class="separator:a1bc6b3d895c30448535ebaafe5f015a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72dbda671cb252079f20c6164fbd790b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a72dbda671cb252079f20c6164fbd790b">setFinal</a> (bool setter=true)</td></tr>
 <tr class="separator:a72dbda671cb252079f20c6164fbd790b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad906cb94b7d9a19f2e0a54ea05ce6fbc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#ad906cb94b7d9a19f2e0a54ea05ce6fbc">hasTransition</a> (const std::string &amp;sym) const</td></tr>
+<tr class="separator:ad906cb94b7d9a19f2e0a54ea05ce6fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d61aa88b91a043c2e2df5b93843c6f4"><td class="memItemLeft" align="right" valign="top"><a id="a3d61aa88b91a043c2e2df5b93843c6f4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isFinal</b> () const</td></tr>
+<tr class="separator:a3d61aa88b91a043c2e2df5b93843c6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f88a199095e378d36028fdeeee5e1a2"><td class="memItemLeft" align="right" valign="top"><a id="a9f88a199095e378d36028fdeeee5e1a2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInitial</b> () const</td></tr>
+<tr class="separator:a9f88a199095e378d36028fdeeee5e1a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef92752161f88dc0b82c5c4c7e54e573"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#aef92752161f88dc0b82c5c4c7e54e573">getTransitionsWithSymbol</a> (const std::string &amp;sym) const</td></tr>
+<tr class="separator:aef92752161f88dc0b82c5c4c7e54e573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1943cb425dc4659729fadb052e94caea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a1943cb425dc4659729fadb052e94caea">getIsInitial</a> () const</td></tr>
+<tr class="separator:a1943cb425dc4659729fadb052e94caea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a220c1e9e9a536578e3c508dff0d9388f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html#a220c1e9e9a536578e3c508dff0d9388f">getIsFinal</a> () const</td></tr>
+<tr class="separator:a220c1e9e9a536578e3c508dff0d9388f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents an <a class="el" href="class_automaton.html">Automaton</a>'s <a class="el" href="class_state.html">State</a>, it contains a list of transitions (<a class="el" href="class_transition.html">Transition</a>) </p>
@@ -202,8 +216,8 @@ To allow a safer use of this method, use the <code><a class="el" href="class_sta
 
 </div>
 </div>
-<a id="af495568db8f81ebc64c49967c5e0de70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af495568db8f81ebc64c49967c5e0de70">&#9670;&nbsp;</a></span>getIdentifier()</h2>
+<a id="add36072bee39cd72b7c94b8a26b80960"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add36072bee39cd72b7c94b8a26b80960">&#9670;&nbsp;</a></span>getIdentifier()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,12 +226,52 @@ To allow a safer use of this method, use the <code><a class="el" href="class_sta
           <td class="memname">std::string State::getIdentifier </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Getter for the _identifier attribute</p>
 <dl class="section return"><dt>Returns</dt><dd>The value of the _identifier attribute of the instance </dd></dl>
+
+</div>
+</div>
+<a id="a220c1e9e9a536578e3c508dff0d9388f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a220c1e9e9a536578e3c508dff0d9388f">&#9670;&nbsp;</a></span>getIsFinal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool State::getIsFinal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter for _isFinal attribute</p>
+<dl class="section warning"><dt>Warning</dt><dd>This method is deprecated and will be removed, use State::isFinal() method instead</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the _isFinal attribute of the instance </dd></dl>
+
+</div>
+</div>
+<a id="a1943cb425dc4659729fadb052e94caea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1943cb425dc4659729fadb052e94caea">&#9670;&nbsp;</a></span>getIsInitial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool State::getIsInitial </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter for _isInitial attribute</p>
+<dl class="section warning"><dt>Warning</dt><dd>This method is deprecated and will be removed, use State::isInitial() method instead</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of the _isInitial attribute of the instance </dd></dl>
 
 </div>
 </div>
@@ -256,6 +310,58 @@ To allow a safer use of this method, use the <code><a class="el" href="class_sta
 </div><div class="memdoc">
 <p>Getter for the _transition attribute</p>
 <dl class="section return"><dt>Returns</dt><dd>{std::vector&lt;Transition&gt;} List (std::vector) of the transitions (<a class="el" href="class_transition.html">Transition</a>) of the instance </dd></dl>
+
+</div>
+</div>
+<a id="aef92752161f88dc0b82c5c4c7e54e573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef92752161f88dc0b82c5c4c7e54e573">&#9670;&nbsp;</a></span>getTransitionsWithSymbol()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int &gt; State::getTransitionsWithSymbol </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sym</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the indexes of the Transitions labelled with a specified symbol</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sym</td><td>Symbol that labels the transitions to find</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The indexes of the Transitions labelled with sym, -1 if no <a class="el" href="class_transition.html">Transition</a> matches </dd></dl>
+
+</div>
+</div>
+<a id="ad906cb94b7d9a19f2e0a54ea05ce6fbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad906cb94b7d9a19f2e0a54ea05ce6fbc">&#9670;&nbsp;</a></span>hasTransition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool State::hasTransition </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sym</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks if a <a class="el" href="class_state.html">State</a> has a <a class="el" href="class_transition.html">Transition</a> with a given symbol</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sym</td><td>The <a class="el" href="class_transition.html">Transition</a> symbol</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether or not the <a class="el" href="class_state.html">State</a> has a <a class="el" href="class_transition.html">Transition</a> labeled with the passed symbol </dd></dl>
 
 </div>
 </div>
