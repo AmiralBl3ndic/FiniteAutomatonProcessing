@@ -431,10 +431,12 @@ bool Automaton::recognize(const std::string &word) {
     int cpActiveIndex(_activeStateIndex);
 
     for (i = 0; i < _states.size(); i++) {
-        _activeStateIndex = i;
-        if (recognizeRecur(word)) {
-            _activeStateIndex = cpActiveIndex;
-            return true;
+        if (_states[i].isInitial()) {
+            _activeStateIndex = i;
+            if (recognizeRecur(word)) {
+                _activeStateIndex = cpActiveIndex;
+                return true;
+            }
         }
     }
 
