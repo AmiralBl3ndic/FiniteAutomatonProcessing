@@ -169,6 +169,11 @@ public:
 	   *
 	   */
 	  void complete();
+
+	  /** @description Display an automaton
+	  *
+	  */
+	  void display();
 };
 
 

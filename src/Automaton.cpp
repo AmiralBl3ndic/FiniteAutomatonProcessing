@@ -536,5 +536,41 @@ void Automaton::complete() {
             }
 }
 
+void Automaton::display() // not tested
+{
+	int i(0), trans(0), j(0);
+	std::vector<string> initial;
+	std::vector<string> final;
+	for (i = 0; i < _states.size(); ++i) {
+		if (_states[i].isFinal())
+			final.push_back(_states[i].getIdentifier());
+		if(_states[i].isInitial())
+			initial.push_back(_states[i].getIdentifier());
+	}
+	cout << _alphabet.size() << "\n";
+	cout << _states.size() << "\n";
+	cout << initial.size() << " ";
+	for (i = 0; i < initial.size(); ++i) {
+		cout << initial[i] << " ";
+	}
+	cout << "\n";
+	cout << final.size() << " ";
+	for (i = 0; i < final.size(); ++i) {
+		cout << final[i] << " ";
+	}
+	cout << "\n";
+	for (i = 0; i < _states.size(); ++i) {
+		trans += _states[i].getTransitions().size();
+	}
+	cout << trans << "\n";
+	
+	for (i = 0; i < _states.size(); ++i) {
+		for (j = 0; j < _states[i].getTransitions().size(); ++j) {
+			cout << _states[i].getIdentifier() << _states[i].getTransitions()[j].getSymbol() << _states[i].getTransitions()[j].getEndStateIdentifier() << "\n";
+		}
+	}
+
+}
+
 
 
