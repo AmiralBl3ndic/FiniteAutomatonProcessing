@@ -30,6 +30,8 @@ private:
 	int _activeStateIndex;
 	bool _verbose;
 
+	Automaton(const Automaton*);
+
 
 	void logBasicError(const std::string& error) const;
 
@@ -72,6 +74,10 @@ private:
 	  */
 	 bool recognizeRecur(const std::string& word);
 
+	 /** @description Transform final states into non-final states and vice-versa
+ 	 *
+ 	 */
+	 void makeComplementary();
 
 public:
 
@@ -169,6 +175,13 @@ public:
 	   *
 	   */
 	  void complete();
+
+	  /** @description Create a complementary automaton
+      *
+      *   @return The complementary automaton
+      */
+	  Automaton complementaryAutomaton() const;
+
 
 	  /** @description Display an automaton
 	  *

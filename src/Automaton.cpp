@@ -30,6 +30,11 @@ Automaton::Automaton(std::vector<std::string> alphabet, std::vector<State> state
     }
 }
 
+/** @description Copy constructor
+ *
+ */
+
+Automaton::Automaton(const Automaton*){}
 
 /** @description Constructor with file path
  *
@@ -572,5 +577,16 @@ void Automaton::display() // not tested
 
 }
 
+void Automaton::makeComplementary() {
 
+    for (unsigned int i = 0; i < _states.size(); i++)
+        _states[i].setFinal(!_states[i].isFinal());
+}
+
+Automaton Automaton::complementaryAutomaton() const {
+
+    Automaton ret(this);
+    ret.makeComplementary();
+    return ret;
+}
 
