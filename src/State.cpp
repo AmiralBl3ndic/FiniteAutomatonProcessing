@@ -136,3 +136,18 @@ std::vector<int> State::getTransitionsWithSymbol(const std::string &sym) const {
     return ret;
 }
 
+
+
+void State::removeTransition(const std::string &symbol, const std::string &endStateIdentifier) {
+    unsigned int i(0);
+
+    for (i = 0; i < _transitions.size(); i++)
+        if (_transitions[i].getEndStateIdentifier() == endStateIdentifier && _transitions[i].getSymbol() == symbol){
+            _transitions.erase(_transitions.begin() + i);
+            return;
+        }
+
+    cerr << "No transition found, consequently, no transition was deleted" << endl;
+}
+
+

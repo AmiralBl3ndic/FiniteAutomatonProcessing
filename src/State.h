@@ -119,6 +119,11 @@ public:
 	 */
 	 bool getIsFinal() const;
 
+
+	/** @description Removes a transition
+	 *
+	 */
+	void removeTransition(const std::string& symbol, const std::string& endStateIdentifier);
 };
 
 
