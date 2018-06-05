@@ -583,10 +583,27 @@ void Automaton::makeComplementary() {
         _states[i].setFinal(!_states[i].isFinal());
 }
 
+
+
 Automaton Automaton::complementaryAutomaton() const {
 
     Automaton ret(this);
     ret.makeComplementary();
+    return ret;
+}
+
+
+
+std::vector<int> Automaton::getInitialStatesIndexes() const {
+    unsigned int i(0);
+    vector<int> ret;
+
+    ret.clear();
+
+    for (i = 0; i < _states.size(); i++)
+        if (_states[i].isInitial())
+            ret.push_back(static_cast<int>(i));
+
     return ret;
 }
 

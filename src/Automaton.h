@@ -30,7 +30,7 @@ private:
 	int _activeStateIndex;
 	bool _verbose;
 
-	Automaton(const Automaton*);
+	explicit Automaton(const Automaton*);
 
 
 	void logBasicError(const std::string& error) const;
@@ -78,6 +78,12 @@ private:
  	 *
  	 */
 	 void makeComplementary();
+
+	/** @description Gets the initial states of the instance
+	 *
+	 *  @return A list {std::vector<int>} of the indexes of initial states
+	 */
+	std::vector<int> getInitialStatesIndexes() const;
 
 public:
 
