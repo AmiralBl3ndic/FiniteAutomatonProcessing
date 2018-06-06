@@ -284,6 +284,92 @@ bool Automaton::isDeterminist() const {
 	return true;
 }
 
+/** @description Determinzes the automaton after it was completed
+*
+*/
+void::determinizeAndCompleteSync()
+{
+   Automaton determinizedAutomaton;
+   States initial;
+   char symbol;
+   unsigned int i(0),j(0),check(0);
+   vector<string> endstate,tmp_state;
+
+   //We will take all the initial states and store them into what will be out final Automaton
+   initial = getInitialStatesIndexes() const;
+
+    for(i = 0; i < _states.getTransitions().size(); i++)
+    {
+        //store symbol for transitions
+        symbol = _states[check].getTransitions()[i].getSymbol();
+
+        for(j = 0; j < _states.getTransitions().size(); j++)
+        {
+            //verifies if there are some transitions with the same symbol
+            if(symbol == _states[check].getTransition()[j].getSymbol())
+            {
+                //stores the end state identifier that will be use to create a new transition with the same symbol and bot end states
+                endstate.push_back(_states[check].getTransitions()[i].getEndStateIdentifier());
+                initial[check].addTransitions(symbol,endstate);
+                //erases the useless transition
+                _states[check].erase(_states[check].getTransitions()[j].begin, _states[check].getTransitions()[j].end);
+                check++;
+            }
+
+            else
+            {
+                //else add the transition as if it's a new one
+                intial[check].addTransition(symbol,_states[check].getTransitions()[j].getEndStatesIdentifier());
+                check++;
+            }
+        }
+    }
+
+    //sort the list
+    for(i = 0; i < initial.size(); i++)
+    {
+        initial.sort(initial.begin(), initial.end());
+    }
+
+    check = 0;
+    //delete the same transitions
+    for(i = 0; i < initial.size(); i++)
+    {
+        for(j=0; j < initial.size(); j++)
+        {
+            if(initial[check].getTransitions()[i] == initial[check].getTransitions()[j])
+                intial[check].getTransitions()[j].erase(intial[check].getTransitions()[j].begin, intial[check].getTransitions()[j].end);
+        }
+    }
+
+    i = 0;
+    endstate.erase(endstate.begin,endstate.end)
+
+    for(j = 0; i < initial.getTransitions().size(); i++)
+    {
+        //We will now check for all states the possibles common transitions
+        tmp_state = initial[i].getIdentifier();
+        symbol = intitial[i].getTransitions()[j].getSymbols();
+
+        for(k = 0; j < initial.getTransitions().size())
+        {
+            if(tmp_state == initial[i].getIsInitial()  && symbol == initial[i].getTransitions()[k].getSymbol())
+            {
+                //stores the end state identifier that will be use to create a new transition with the same symbol and bot end states
+                endstate.push_back(initial[i].getTransitions()[i].getEndStateIdentifier());
+                initial[i].addTransitions(symbol,endstate);
+                //erases the useless transition
+                intial[check].erase(intial[check].getTransitions()[k].begin,intial[check].getTransitions()[k].end);
+                i++;
+            }
+            else
+                //we will keep the transition
+                i++;
+        }
+    }
+}
+
+
 /* @description Checks if an automaton is standard or not
 *
 * @return {bool} If the instance is standard

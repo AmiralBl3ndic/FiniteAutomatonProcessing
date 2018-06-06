@@ -144,6 +144,10 @@ public:
       */
 	  bool isDeterminist() const;
 
+	  /** @description Determinzes the automaton after it has been completed
+	  *
+	  */
+	  void determinizeAndCompleteSync();
 
 	 /** @description Checks if an automaton is standard or not
 	  *
