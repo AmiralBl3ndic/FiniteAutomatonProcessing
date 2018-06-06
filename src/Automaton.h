@@ -187,6 +187,33 @@ public:
 	  *
 	  */
 	  void display();
+	
+	
+		/// MAKING A NON-ACCESSIBLE STATE FREE AUTOMATON
+	/** @description Suppresses all the Non-Accessible States and their Transitions
+	*
+	*/
+	void MakeNonAccessibleState_Free_Automaton();
+
+	/** @description Create an automaton without Non-Accessible State
+	*
+	*   @return The automaton without Non-Accessible State
+	*/
+	Automaton SuppressNonAccessibleStates() const;
+
+
+
+	/// MINIMIZING AN AUTOMATON
+	/** @description Makes the Automaton instance Minimized
+	*
+	*/
+	void MakeMinimized();
+
+	/** @description Create a Minimized automaton
+	*
+	*   @return The Minimized automaton
+	*/
+	Automaton MinimizedAutomaton() const;
 };
 
 
