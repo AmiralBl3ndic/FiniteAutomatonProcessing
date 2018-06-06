@@ -590,3 +590,126 @@ Automaton Automaton::complementaryAutomaton() const {
     return ret;
 }
 
+/// MAKING A NON-ACCESSIBLE STATE FREE AUTOMATON
+/** @description Suppresses all the Non-Accessible States and their Transitions
+*
+*  @return a FA without Non-Accessible States
+*/
+///NOT FINISHED YET !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void Automaton::MakeNonAccessibleState_Free_Automaton()
+{
+	// For each existing State
+	// If there is no Arriving Transition && it is not an entry state (_isInitial = false)
+	// We suppress this State
+
+	bool _WillBeDestroyed; // by default, is true ; when the State is certified to be accessible, is false
+
+	for (int i = 0; i < _states.size() - 1; i++)
+	{
+		_WillBeDestroyed = true;
+
+		if (_states[i].getIsInitial())
+			_WillBeDestroyed = false;
+		else
+		{
+			for (int j = 0; j < numberOfStates() - 1; j++)
+				//for (int j = 0; j < _states.size() - 1; j++)
+			{
+				if (i != j)
+				{
+					for (int k = 0; k < numberOfStates() - 1; j++)
+						//for (int k = 0; k < _states._transition.size() - 1; j++)
+					{
+						if (state[i]._identifier == state[j]._transition[k]._endStateIdentifier)
+							_WillBeDestroyed = false;
+					}
+				}
+			}
+		}
+
+		if (_WillBeDestroyed)	// We proved that the state was non-accessible, so we delete it //ENTER FUNCTION TO DESTROY THE STATE
+	}
+}
+
+/// FINIE !!!
+Automaton Automaton::SuppressNonAccessibleStates() const {
+
+	Automaton ret(this);
+	ret.MakeNonAccessibleState_Free_Automaton();
+	return ret;
+}
+
+
+
+/// MINIMIZING AN AUTOMATON
+/** @description Makes the Automaton instance Minimized
+*
+*/
+///NOT FINISHED YET !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (far from it, in fact..)
+void Automaton::MakeMinimized()
+{
+	int _LengthCpt = 2;								// Number of groups
+	int* _Cpt = new int[_LengthCpt];					// Number of States associated to each group
+	_Cpt[0] = -1;
+	_Cpt[1] = -1;
+
+	Automaton _Automaton_Minimized(_alphabet);
+	std::vector<std::vector<std::string>> _Groups;	// Said Groups of States
+	std::vector<std::vector<std::string>> _Symbols;	// Symbols contained in each Group
+
+	
+	for (int i = 0; i < _states.size() - 1; i++)		// FIRST ROW : either Final (-> 0) or not (-> 1)
+	{
+		if (_states[i].getIsFinal())
+			_Groups[0][_Cpt[0]++] = _states._identifier;
+		else
+			_Groups[1][_Cpt[1]++] = _states._identifier;
+	}
+
+
+	for (int i = 0; i < _LengthCpt; i++)
+	{
+		for (int j = 0; j <= _Cpt[i]; j++)
+		{
+			for (int k = 0; k < _Groups[i][j].; k++)
+			{
+			}
+		}
+	}
+
+	delete[]Cpt;
+	return _Automaton_Minimized;
+}
+
+/** @description Create a Minimized automaton
+*
+*   @return The Minimized automaton
+*/
+/// FINIE !!!
+Automaton Automaton::MinimizedAutomaton() const {
+	Automaton ret(this);
+
+	if (!ret.isComplete())				// Requirement n°1 : A FA needs to be Complete in order to be minimized
+	{
+		std::cout << "The FA is not Complete : it is a requirement in order to minimize it" << std::endl;
+		ret.complete();
+		std::cout << "The FA is now Complete" << std::endl;
+	}
+
+	if (!ret.isDeterminist())			// Requirement n°2 : A FA needs to be Deterministic in order to be minimized
+	{
+		std::cout << "The FA is not Deterministic : it is a requirement in order to minimize it" << std::endl;
+		//!!!!!!!!!!!! INSERER METHODE POUR DEVENIR DETERMINISTIQUE !!!!!!!!!!
+		std::cout << "The FA is now Deterministic" << std::endl;
+	}
+
+	Automaton = ret.SuppressNonAccessibleStates();			// Requirement n°3 : There cannot be any non-accessible State : those existing must be suppressed
+	std::cout << "We suppressed all Non-accessible states in the Automaton" << std::endl;
+
+	// The Requirement are over
+
+	ret.makeMinimized();
+	std::cout << "The Automaton has been Minimized !!" << std::endl;
+	return ret;
+}
+
